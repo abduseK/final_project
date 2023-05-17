@@ -1,0 +1,40 @@
+* {
+  margin-left: 10px;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.logo {
+  color: #00a967;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  width: 100%;
+}
+
+.menu-lists {
+  list-style: none;
+  display: flex;
+  margin-right: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  color: #00a967;
+}
+
+/* mobile device */
+@media (max-width: 767px) {
+  .logo {
+    color: orange;
+  }
+}
+
+/* dektop version */
+@media (min-width: 768px) {
+}
