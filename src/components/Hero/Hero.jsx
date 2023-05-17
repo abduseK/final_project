@@ -5,12 +5,11 @@ export default function Hero() {
     <div className="hero-section">
       <div className="hero-intro">
         <h1>
-          Find The Easiest Way to Apply for Your ID, Birth and Other
-          Certificates
+          The Simplest Way to Apply for Your ID, Birth and Other Certificates
         </h1>
         <p className="hero-text">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
-          nostrum nisi nulla temporibus reiciendis, ipsa autem doloribus ducimus
+          We assit you to apply for your birth, death, wedding certificates,
+          apply for residential registration and other services
         </p>
         <div className="hero-btns">
           <form action="#works">
