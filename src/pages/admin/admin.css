@@ -1,0 +1,34 @@
+.sidenav {
+  margin-top: 100px;
+  width: 200px;
+  position: absolute;
+  background: rgb(199, 252, 202);
+  height: 95vh;
+  padding: 10px 30px;
+  transition: all 1s;
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  /* margin: 0 10px; */
+}
+
+.sidenav-menu li a {
+  text-decoration: none;
+  color: #00a967;
+  font-size: 16px;
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.sidenav-menu li a:hover,
+.sidenav-menu li a:active {
+  background: #00a967;
+  color: white;
+}

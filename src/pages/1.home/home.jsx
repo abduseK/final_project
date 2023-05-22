@@ -1,7 +1,8 @@
-import "./hero.css";
+import "./home.css";
 import heroPic from "./heroImage.png";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
-export default function Hero() {
+export default function Home() {
   return (
     <div className="hero-section">
       <div className="hero-intro">

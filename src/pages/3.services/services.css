@@ -1,0 +1,21 @@
+/* .service {
+  opacity: 0;
+  transform: translateX(50%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.service:active {
+  opacity: 1;
+  transform: translateX(0);
+} */
+
+.services-title {
+  text-align: start;
+  justify-content: space-between;
+  padding-top: 100px;
+  padding-left: 20px;
+}
+
+.services--card-items {
+  display: flex;
+}

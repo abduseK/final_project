@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=M+PLUS+Code+Latin&display=swap");
+
 * {
   margin-left: 10px;
 }
@@ -8,7 +10,8 @@ body {
 
 .logo {
   color: #00a967;
-  margin-left: 20px;
+  margin-left: 33px;
+  font-family: "Dancing Script";
 }
 
 .nav {
@@ -17,6 +20,11 @@ body {
   justify-content: space-between;
   height: 10vh;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .menu-lists {
@@ -26,6 +34,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  color: #00a967;
+}
+
+.links {
+  text-decoration: none;
   color: #00a967;
 }
 
