@@ -1,0 +1,28 @@
+.Acard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.Acard {
+  width: 500px;
+  height: 15px;
+  background-color: white;
+  padding: 18px;
+  margin-bottom: 3px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.Acard--items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

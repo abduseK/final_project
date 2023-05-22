@@ -1,25 +1,34 @@
 import "./admin.css";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Dashboard from "./admin-screens/dashboard/admin_dashboard.jsx";
+import Settings from "./admin-screens/settings/admin_settings.jsx";
 
-export default function () {
+export default function Admin() {
   return (
-    <div className="sidenav">
-      <ul className="sidenav-menu">
-        <li>
-          <a href="">Dashboard</a>
-        </li>
-        <li>
-          <a href="">Pending Requests</a>
-        </li>
-        <li>
-          <a href="">Resident's Data</a>
-        </li>
-        <li>
-          <a href="">Account Management</a>
-        </li>
-        <li>
-          <a href="">Settings</a>
-        </li>
-      </ul>
+    <div>
+      <div className="sidenav">
+        <ul className="sidenav-menu">
+          <li>
+            <Link to="admin/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="admin/pending-requests">Pending Requests</Link>
+          </li>
+          <li>
+            <Link to="admin/resident-data">Resident's Data</Link>
+          </li>
+          <li>
+            <Link to="admin/account-management">Account Management</Link>
+          </li>
+          <li>
+            <Link to="admin/settings">Settings</Link>
+          </li>
+        </ul>
+      </div>
+      <Routes>
+        <Route exact={true} path="admin/dashboard" Component={Dashboard} />
+        <Route exact={true} path="admin/settings" Component={Settings} />
+      </Routes>
     </div>
   );
 }
