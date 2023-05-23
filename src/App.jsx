@@ -1,8 +1,7 @@
 import Header from "./components/Header/Header.jsx";
-import "./app.css";
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/1.home/home.jsx";
-import Try from "./components/try.jsx";
 import Services from "./pages/3.services/services.jsx";
 import Admin from "./pages/admin/admin.jsx";
 

@@ -1,0 +1,47 @@
+.stat-section {
+  background: rgb(199, 252, 202);
+  height: 400px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  /* box-shadow: 0px 4px 6px #7eb6a0; */
+}
+
+.stat-section-items {
+  padding-top: 160px;
+  padding-left: 30px;
+  text-align: center;
+}
+
+.stat-section-pie {
+  text-align: center;
+}
+
+.stat-section-items h1,
+p,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+.stat-section-items p {
+  margin-left: 10px;
+}
+
+.stat-row {
+  display: flex;
+}
+
+.stat-row p {
+  justify-content: start;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.stat-nums {
+  font-size: 50px;
+}
+
+.stat-span {
+  font-size: 30px;
+}

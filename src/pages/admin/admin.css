@@ -1,10 +1,10 @@
 .sidenav {
   margin-top: 100px;
-  width: 200px;
+  width: 130px;
   position: absolute;
   background: rgb(199, 252, 202);
   height: 95vh;
-  padding: 10px 30px;
+  padding-right: 30px;
   transition: all 1s;
 }
 
