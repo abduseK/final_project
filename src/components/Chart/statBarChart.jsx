@@ -13,32 +13,32 @@ export default function StatBarChart() {
   const data = [
     {
       name: "ID Cards",
-      uv: 4000,
-      pv: 2400,
+      uv: 150,
+      pv: 600,
       amt: 2400,
     },
     {
       name: "Birth Cert.",
-      uv: 3000,
-      pv: 1398,
+      uv: 100,
+      pv: 350,
       amt: 2210,
     },
     {
       name: "Wedding Cert.",
-      uv: 2000,
-      pv: 9800,
+      uv: 85,
+      pv: 200,
       amt: 2290,
     },
     {
       name: "Residential Reg.",
-      uv: 2780,
-      pv: 3908,
+      uv: 180,
+      pv: 300,
       amt: 2000,
     },
     {
       name: "Death Cert.",
-      uv: 1890,
-      pv: 4800,
+      uv: 53,
+      pv: 400,
       amt: 2181,
     },
   ];
