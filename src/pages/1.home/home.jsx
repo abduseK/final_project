@@ -17,12 +17,12 @@ export default function Home() {
             apply for residential registration and other services
           </p>
           <div className="hero-btns">
-            <form action="#works">
-              <button className="services---btn">Services</button>
-            </form>
             <Link to="/services">
-              <button className="register---btn">Register</button>
+              <button className="register---btn">Services</button>
             </Link>
+            <form action="#works">
+              <button className="services---btn">Register</button>
+            </form>
           </div>
         </div>
         <div className="hero-pic">

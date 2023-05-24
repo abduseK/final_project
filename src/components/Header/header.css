@@ -22,9 +22,10 @@ body {
   width: 100%;
   position: fixed;
   top: 0;
+  background-color: white;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 9999;
 }
 
 .menu-lists {

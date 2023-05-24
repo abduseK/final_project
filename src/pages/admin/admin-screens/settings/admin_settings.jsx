@@ -4,7 +4,7 @@ import "./adminSettings.css";
 export default function AdminSettings() {
   return (
     <AnimatedPage>
-      <div className="admin-screen-title">
+      <div className="admin-screen">
         <h1>Admin Settings</h1>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum

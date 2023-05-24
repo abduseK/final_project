@@ -9,13 +9,20 @@
   transform: translateX(0);
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap");
+
+.services-title-header {
+  font-family: "Anton", sans-serif;
+  font-size: 80px;
+}
 .services-title {
   text-align: start;
   justify-content: space-between;
   padding-top: 100px;
-  padding-left: 20px;
+  padding-left: 30px;
   color: #00a967;
-  font-size: 60px;
+  font-weight: 300;
+  font-size: 20px;
 }
 
 .s-span {

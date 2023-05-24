@@ -7,7 +7,7 @@ export default function Services() {
     <AnimatedPage>
       <div className="services">
         <h1 className="services-title">
-          Start <br></br>
+          <span className="services-title-header">Start</span> <br></br>
           <span className="s-span">Your Application</span> <br></br>
         </h1>
 

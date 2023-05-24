@@ -7,7 +7,7 @@ import AnimatedPage from "../../components/AnimatedPage";
 export default function Admin() {
   return (
     <AnimatedPage>
-      <div>
+      <div className="container">
         <div className="sidenav">
           <ul className="sidenav-menu">
             <li>
