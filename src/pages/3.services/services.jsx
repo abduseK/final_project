@@ -5,11 +5,8 @@ import AnimatedPage from "../../components/AnimatedPage";
 export default function Services() {
   return (
     <AnimatedPage>
-      <div className="services">
-        <h1 className="services-title">
-          <span className="services-title-header">Start</span> <br></br>
-          <span className="s-span">Your Application</span> <br></br>
-        </h1>
+      <div className="services" id="services">
+        <h1 className="services-title">Start Your Application</h1>
 
         <div className="services-cards">
           <div className="services--card">

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap");
 
 .stat-section {
-  background: rgb(199, 252, 202);
+  background: rgb(229, 240, 229);
   height: 400px;
   margin: 20px;
   display: flex;
@@ -33,6 +33,10 @@ span {
 .stat-row {
   display: flex;
   font-family: "Anton", sans-serif;
+}
+
+.stat-name {
+  font-size: 18px;
 }
 
 .stat-row p {

@@ -8,7 +8,7 @@ export default function Hero() {
           <h1 className="stat-nums">53</h1>
           <p>+</p>
         </div>
-        <p>Residents registered last month</p>
+        <p className="stat-name">Residents registered last month</p>
       </div>
       <div className="stat-section-items">
         <div className="stat-row">

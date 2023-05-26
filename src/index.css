@@ -19,3 +19,7 @@ button:focus {
   outline: 3px solid #676cdb;
   outline-offset: 3px;
 }
+
+html {
+  scroll-behavior: smooth;
+}

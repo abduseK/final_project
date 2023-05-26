@@ -43,13 +43,18 @@ body {
   color: #00a967;
 }
 
+li a {
+  text-decoration: none;
+  color: #00a967;
+}
+
 /* mobile device */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .logo {
     color: orange;
   }
-}
+} */
 
 /* dektop version */
-@media (min-width: 768px) {
-}
+/* @media (min-width: 768px) {
+} */
