@@ -20,7 +20,7 @@ export default function ServieCard() {
               </div>
             </div>
           </Link>
-          <Link to="/home/idform">
+          <Link to="/application/id">
             <div className="card">
               <div className="card--items">
                 <img className="card--imgs" src={IdPic} alt="" />
@@ -63,7 +63,7 @@ export default function ServieCard() {
         </div>
       </div>
       <Routes>
-        <Route path="/home/idform" Component={IDForm} />
+        <Route path="/application/id" Component={IDForm} />
       </Routes>
     </AnimatedPage>
   );

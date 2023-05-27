@@ -14,7 +14,7 @@ function App() {
         <Route exact path="/" Component={Home} />
         <Route path="/services" Component={Services} />
         <Route path="/admin/*" Component={Admin} />
-        <Route path="/home/idform" Component={IDForm} />
+        <Route path="/application/id" Component={IDForm} />
       </Routes>
     </Router>
   );
