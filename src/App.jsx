@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/1.home/home.jsx";
 import Services from "./pages/3.services/services.jsx";
 import Admin from "./pages/admin/admin.jsx";
+import IDForm from "./components/Forms/IdForm/IDForm.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" Component={Home} />
         <Route path="/services" Component={Services} />
         <Route path="/admin/*" Component={Admin} />
+        <Route path="/home/idform" Component={IDForm} />
       </Routes>
     </Router>
   );

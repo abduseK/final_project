@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=M+PLUS+Code+Latin&display=swap");
 
-* {
-  margin-left: 10px;
-}
-
-body {
-  background-color: #f9f9f9;
-}
-
 .logo {
   color: #00a967;
   margin-left: 33px;
