@@ -7,12 +7,13 @@ import "./card.css";
 import AnimatedPage from "../AnimatedPage";
 import IDForm from "../Forms/IdForm/IDForm";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import AuthPage from "../authForms/AuthComponent.jsx";
 export default function ServieCard() {
   return (
     <AnimatedPage>
       <div>
         <div className="card-grid">
-          <Link to="/">
+          <Link to="/users/auth">
             <div className="card">
               <div className="card--items">
                 <img className="card--imgs" src={RregisterPic} alt="" />
@@ -64,6 +65,7 @@ export default function ServieCard() {
       </div>
       <Routes>
         <Route path="/application/id" Component={IDForm} />
+        <Route path="/users/auth" Component={AuthPage} />
       </Routes>
     </AnimatedPage>
   );

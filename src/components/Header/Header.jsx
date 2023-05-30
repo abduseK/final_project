@@ -16,7 +16,9 @@ export default function Header() {
           <li>
             <a href="#services">Services</a>
           </li>
-          <li>About</li>
+          <li>
+            <Link to="/users/login">Sign Up</Link>
+          </li>
           <li>
             <Link className="links" to="/admin">
               Account
