@@ -1,6 +1,6 @@
 import "./Hero.css";
 import heroPic from "./heroImage.png";
-
+import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <div className="hero-section">
@@ -16,9 +16,10 @@ export default function Hero() {
           <form action="#services">
             <button className="services---btn">Services</button>
           </form>
-          <form action="#register">
+
+          <Link to="/users/auth">
             <button className="services---btn">Register</button>
-          </form>
+          </Link>
         </div>
       </div>
       <div className="hero-pic">
