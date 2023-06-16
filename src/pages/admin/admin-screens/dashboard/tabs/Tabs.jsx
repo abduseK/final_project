@@ -31,18 +31,17 @@ export default function Tabs() {
           Tab 3
         </button>
       </div>
-
       <div className="content-tabs">
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
         >
           <h2>Registered staff members</h2>
           <hr />
-          <AdminCard num={1} requester={". Abdelselam Kemal"} />
-          <AdminCard num={2} requester={". Bereket Atakilt"} />
-          <AdminCard num={3} requester={". Gedion Getachew"} />
-          <AdminCard num={4} requester={". Tnsae Birhan"} />
-          <h5>Confirmed Requests</h5>
+          <AdminCard num={1} name={"Abdelselam Kemal"} />
+          <AdminCard num={2} name={"Bereket Atakilt"} />
+          <AdminCard num={3} name={"Gedion Getachew"} />
+          <AdminCard num={4} name={"Tnsae Birhan"} />
+          <button className="create-staff-acct">Create Account</button>
         </div>
 
         <div

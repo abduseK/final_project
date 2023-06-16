@@ -43,6 +43,11 @@
   /* background: rgb(88, 147, 241); */
 }
 
+.create-staff-acct {
+  background-color: #00a967;
+  margin-top: 10px;
+  margin-left: 20px;
+}
 button {
   border: none;
 }

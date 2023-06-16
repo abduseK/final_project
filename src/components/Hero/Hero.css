@@ -29,6 +29,11 @@
   height: 50px;
   width: 100%px;
   border: none;
+  transition: transform 200ms ease-in-out;
+}
+
+.services---btn:hover {
+  transform: scale(1.1);
 }
 
 .register---btn {
