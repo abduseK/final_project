@@ -3,7 +3,7 @@
   flex-direction: column;
   position: relative;
   background: #f1f1f1;
-  margin: 100px auto 0;
+  margin-top: 30px;
   word-break: break-all;
   border: none;
 }
@@ -11,10 +11,14 @@
 .bloc-tabs {
   display: flex;
 }
+
+.bloc-tabs p {
+  margin-right: 10px;
+}
 .tabs {
   padding: 15px;
   text-align: center;
-  width: 50%;
+  width: 30%;
   background: rgba(128, 128, 128, 0.075);
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
@@ -76,4 +80,57 @@ button {
 }
 .active-content {
   display: block;
+}
+
+.text-area {
+  width: 470px;
+  border-radius: 5px;
+  padding: 10p;
+}
+
+.text-area textarea {
+  width: 120%;
+  height: 100px;
+  padding: 15px;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+  font-size: 20px;
+  outline: none;
+  resize: none;
+}
+
+textarea:is(:focus, :valid) {
+  border-width: 2px;
+  padding: 14px;
+  border-color: #00a967;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px; /* Adjust the max-width value as needed */
+}
+
+.dialog h2 {
+  margin-top: 0;
+}
+
+.dialog input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.dialog button {
+  margin-top: 10px;
 }

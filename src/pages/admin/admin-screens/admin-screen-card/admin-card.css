@@ -28,10 +28,10 @@
 } */
 
 /* Card.css */
-.card {
+.Acard {
   display: flex;
   height: 15px;
-  width: 200%;
+  width: 60%;
   align-items: center;
   padding: 10px;
   border: 1px solid #ccc;
@@ -62,5 +62,5 @@
 }
 
 .menu-icon {
-  color: blue;
+  color: #00a967;
 }

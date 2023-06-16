@@ -13,13 +13,13 @@ export default function AdminCard(props) {
     //     </div>
     //   </div>
     // </div>
-    <div className="card-grid">
-      <div className="card">
+    <div className="Acard-grid">
+      <div className="Acard">
         <span className="number">{props.num}</span>
         <span className="name">{props.name}</span>
         <div className="icons">
           <span className="icon delete-icon">Delete</span>
-          <span className="icon menu-icon">Menu</span>
+          <span className="icon menu-icon">Edit</span>
         </div>
       </div>
     </div>

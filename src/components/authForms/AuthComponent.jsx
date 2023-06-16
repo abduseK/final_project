@@ -15,7 +15,13 @@ export default function AuthPage() {
               <Components.Input type="text" placeholder="Name" />
               <Components.Input type="email" placeholder="Email" />
               <Components.Input type="password" placeholder="Password" />
-              <Components.Button>Sign Up</Components.Button>
+              <Components.Button
+                onClick={() => {
+                  // Sing Up Functionality Code
+                }}
+              >
+                Sign Up
+              </Components.Button>
             </Components.Form>
           </Components.SignUpContainer>
 
@@ -27,7 +33,13 @@ export default function AuthPage() {
               <Components.Anchor href="#">
                 Forgot your password?
               </Components.Anchor>
-              <Components.Button>Sigin In</Components.Button>
+              <Components.Button
+                onClick={() => {
+                  // Login Functionality Code
+                }}
+              >
+                Sigin In
+              </Components.Button>
             </Components.Form>
           </Components.SignInContainer>
 
