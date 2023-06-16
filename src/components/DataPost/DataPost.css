@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap");
+
+.post-section {
+  height: 250px;
+  margin: 20px;
+  justify-content: space-around;
+  /* box-shadow: 0px 4px 6px #7eb6a0; */
+}
+
+.announce {
+  color: red;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Anton", sans-serif;
+}
+
+.announce-message {
+  padding: 20px;
+  width: 1000px;
+  font-size: 18px;
+}
+
+.announce-img {
+  width: 2%;
+}
