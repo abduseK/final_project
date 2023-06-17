@@ -1,0 +1,27 @@
+.table-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.table-btns p {
+  color: green;
+  font-style: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.table-btns span {
+  color: red;
+  font-style: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.container mt-5 {
+  margin-left: 20px;
+}
+
+.table-container {
+  margin-top: 30px;
+  margin-right: 50px;
+}
