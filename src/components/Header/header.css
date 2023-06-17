@@ -40,6 +40,68 @@ li a {
   color: #00a967;
 }
 
+.dropdown-menu {
+  position: absolute;
+  top: 100px;
+  right: 120px;
+  background-color: rgb(229, 240, 229);
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 350px;
+  height: 350px;
+}
+
+.dropdown-menu ul li {
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu ul li:hover a {
+  color: rgb(212, 33, 9);
+  cursor: pointer;
+}
+
+.dropdown-menu hr {
+  width: 39%;
+}
+
+.dropdown-menu h2 {
+  color: black;
+}
+
+.dropdownItem p {
+  color: black;
+  font-weight: 300;
+}
+
+.menu-trigger {
+  cursor: pointer;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: var(--speed) ease;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: var(--speed) ease;
+}
+
+.messages {
+  display: flex;
+  align-items: center;
+}
+
+.messages img {
+  width: 15%;
+  justify-content: center;
+  display: inline;
+}
 /* mobile device */
 /* @media (max-width: 767px) {
   .logo {

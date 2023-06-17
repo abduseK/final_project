@@ -1,12 +1,26 @@
 import "./header.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import dot from "./full-stop.png";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  let menuRef = useRef();
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+  });
   return (
     <div className="nav">
       <h3 className="logo">KKTasks</h3>
 
-      <div className="menus">
+      <div className="menus" ref={menuRef}>
         <ul className="menu-lists">
           <li>
             <Link className="links" to="/">
@@ -16,9 +30,25 @@ export default function Header() {
           <li>
             <a href="#services">Services</a>
           </li>
-          <li>
-            <Link to="/users/login">Sign Up</Link>
-          </li>
+          <div
+            className="menu-trigger"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            Notification
+          </div>
+          <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+            <h2>Notifications</h2>
+            <hr />
+            <ul>
+              <DropDownItem
+                message={"Beki has commented on this project, hehe"}
+              />
+              <DropDownItem message={"Your ID is ready to collect..."} />
+              <DropDownItem message={"Your ID is ready to collect..."} />
+            </ul>
+          </div>
           <li>
             <Link className="links" to="/admin">
               Account
@@ -28,4 +58,15 @@ export default function Header() {
       </div>
     </div>
   );
+
+  function DropDownItem(props) {
+    return (
+      <li className="dropdownItem">
+        <div className="messages">
+          <p>{props.message}</p>
+          <img src={dot} alt="" />
+        </div>
+      </li>
+    );
+  }
 }
