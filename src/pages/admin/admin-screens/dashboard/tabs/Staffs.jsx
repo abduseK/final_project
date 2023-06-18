@@ -13,32 +13,7 @@ export default function StaffUsers() {
       name: "Role",
       selector: (row) => row.role,
     },
-    {
-      name: "",
-      cell: (row) => (
-        <div className="table-btns">
-          <p className="table-btn-1" onClick={() => handleConfirm(row)}>
-            Edit
-          </p>
-          <span className="table-btn-2" onClick={() => handleDeny(row)}>
-            Delete
-          </span>
-        </div>
-      ),
-      ignoreRowClick: true,
-      allowOverflow: true,
-      button: true,
-    },
   ];
-
-  const handleConfirm = (row) => {
-    // Handle confirm button click
-    console.log("confirmed");
-  };
-
-  const handleDeny = (row) => {
-    // Handle deny button click
-  };
 
   const data = [
     {

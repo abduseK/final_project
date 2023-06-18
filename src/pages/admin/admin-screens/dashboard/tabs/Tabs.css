@@ -52,7 +52,18 @@
   margin-top: 10px;
   color: white;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 30px;
+}
+
+.post-btn {
+  background-color: #00a967;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  margin-left: 40vh;
 }
 button {
   border: none;
@@ -88,6 +99,7 @@ button {
   width: 470px;
   border-radius: 5px;
   padding: 10p;
+  margin-left: 30px;
 }
 
 .text-area textarea {
@@ -104,7 +116,6 @@ button {
 textarea:is(:focus, :valid) {
   border-width: 2px;
   padding: 14px;
-  border-color: #00a967;
 }
 
 ::-webkit-scrollbar {

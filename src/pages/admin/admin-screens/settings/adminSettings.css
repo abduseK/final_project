@@ -21,3 +21,38 @@
 .col-1 {
   margin-bottom: 50px;
 }
+
+.col-2 {
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+.select-section select {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  border: lightgrey solid;
+  border-radius: 5px;
+}
+
+.select-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.select-section img {
+  width: 18%;
+  height: 20px;
+  cursor: pointer;
+}
+
+.avatar-row {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.avatar-row p {
+  margin-top: 19px;
+}
