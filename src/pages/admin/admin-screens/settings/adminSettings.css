@@ -1,0 +1,23 @@
+.admin-settings p {
+  width: 400px;
+  margin-left: 10px;
+  color: grey;
+  margin-bottom: 20px;
+}
+
+.admin-settings hr {
+  color: grey;
+  opacity: 50%;
+  margin-bottom: 30px;
+}
+.admin-settings button {
+  background-color: #00a967;
+  color: white;
+  font-weight: bold;
+}
+.rd-table-cell {
+  padding: 8px; /* Adjust the padding value as needed */
+}
+.col-1 {
+  margin-bottom: 50px;
+}

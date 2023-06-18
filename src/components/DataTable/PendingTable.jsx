@@ -87,6 +87,10 @@ export default function PendingTable() {
 
   const [records, setRecords] = useState(data);
 
+  const handleRowClick = (row) => {
+    // Handle the rowclick and show the data using row.name, row.type and bla bla
+  };
+
   function handleFilter(event) {
     const newData = data.filter((row) => {
       return row.type.toLowerCase().includes(event.target.value.toLowerCase());
@@ -109,6 +113,7 @@ export default function PendingTable() {
         selectableRows
         fixedHeader
         pagination
+        onRowClicked={handleRowClick}
       ></DataTable>
     </div>
   );

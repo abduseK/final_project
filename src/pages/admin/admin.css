@@ -40,3 +40,21 @@ ul li {
   background: #00a967;
   color: white;
 }
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 80vh;
+  gap: 5px;
+}
+
+.profile img {
+  border-radius: 50%;
+  width: 40px;
+}
+
+.profile p {
+  font-weight: bold;
+  font-size: 14px;
+}

@@ -50,6 +50,8 @@
 .create-staff-acct {
   background-color: #00a967;
   margin-top: 10px;
+  color: white;
+  font-weight: bold;
   margin-left: 20px;
 }
 button {
