@@ -69,7 +69,7 @@ export default function StaffUsers() {
   return (
     <div className="table-container">
       <div className="text-end">
-        <input type="text" onChange={handleFilter} />
+        <input type="text" onChange={handleFilter} placeholder="search staff" />
       </div>
       <DataTable columns={columns} data={records} selectableRows></DataTable>
     </div>

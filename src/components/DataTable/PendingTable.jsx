@@ -1,5 +1,6 @@
 import DataTable from "react-data-table-component";
 import "./PendingTable.css";
+import { useState } from "react";
 export default function PendingTable() {
   const columns = [
     {
@@ -83,11 +84,28 @@ export default function PendingTable() {
       type: "Birth Cert.",
     },
   ];
+
+  const [records, setRecords] = useState(data);
+
+  function handleFilter(event) {
+    const newData = data.filter((row) => {
+      return row.type.toLowerCase().includes(event.target.value.toLowerCase());
+    });
+
+    setRecords(newData);
+  }
   return (
     <div className="table-container">
+      <div className="text-end">
+        <input
+          type="text"
+          onChange={handleFilter}
+          placeholder="filter application type"
+        />
+      </div>
       <DataTable
         columns={columns}
-        data={data}
+        data={records}
         selectableRows
         fixedHeader
         pagination
