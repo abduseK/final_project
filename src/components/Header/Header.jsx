@@ -6,10 +6,10 @@ import dot from "./full-stop.png";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  let menuRef = useRef();
+  let menuRef = useRef(null);
   useEffect(() => {
     let handler = (e) => {
-      if (!menuRef.current.contains(e.target)) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setOpen(false);
       }
     };

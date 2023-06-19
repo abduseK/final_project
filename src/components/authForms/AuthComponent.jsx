@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Components from "./Components.jsx";
 import "./auth.css";
 import AnimatedPage from "../AnimatedPage.jsx";
 
 export default function AuthPage() {
   const [signIn, toggle] = React.useState(true);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    console.warn(name, email, password);
+  };
+
+  const handleSingIn = (e) => {
+    e.preventDefault();
+    console.warn(email, password);
+  };
+
   return (
     <AnimatedPage>
       <div className="main-container">
@@ -12,14 +26,25 @@ export default function AuthPage() {
           <Components.SignUpContainer signinIn={signIn}>
             <Components.Form>
               <Components.Title>Create Account</Components.Title>
-              <Components.Input type="text" placeholder="Name" />
-              <Components.Input type="email" placeholder="Email" />
-              <Components.Input type="password" placeholder="Password" />
-              <Components.Button
-                onClick={() => {
-                  // Sing Up Functionality Code
-                }}
-              >
+              <Components.Input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Components.Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Components.Input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Components.Button onClick={handleSignUp}>
                 Sign Up
               </Components.Button>
             </Components.Form>
@@ -28,16 +53,22 @@ export default function AuthPage() {
           <Components.SignInContainer signinIn={signIn}>
             <Components.Form>
               <Components.Title>Sign in</Components.Title>
-              <Components.Input type="email" placeholder="Email" />
-              <Components.Input type="password" placeholder="Password" />
+              <Components.Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Components.Input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <Components.Anchor href="#">
                 Forgot your password?
               </Components.Anchor>
-              <Components.Button
-                onClick={() => {
-                  // Login Functionality Code
-                }}
-              >
+              <Components.Button onClick={handleSingIn}>
                 Sigin In
               </Components.Button>
             </Components.Form>
