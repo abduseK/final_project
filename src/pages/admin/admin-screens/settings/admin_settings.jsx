@@ -135,7 +135,7 @@ export default function AdminSettings() {
                   />
                   <div className="btns">
                     <button onClick={closeDialog}>Cancel</button>
-                    <button onClick={""}>Submit</button>
+                    <button onClick={""}>Add</button>
                   </div>
                 </div>
               )}

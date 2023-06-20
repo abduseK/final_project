@@ -1,6 +1,8 @@
 import React from "react";
 import Select from "react-select";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function BirthForm() {
   const handleReset = (event) => {
@@ -14,7 +16,29 @@ export default function BirthForm() {
   ];
 
   const [selectedOption, setSelectedOption] = useState(null);
-  const [date, setDate] = useState();
+  const [selectedDate, setSelectedDate] = useState("");
+  const [showTimeGap, setShowTimeGap] = useState(false);
+  const [selectedTimeGap, setSelectedTimeGap] = useState(null);
+
+  const calculateStartingDate = () => {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 10);
+    return currentDate;
+  };
+
+  const timeGapOptions = [
+    { value: "morning", label: "Morning" },
+    { value: "afternoon", label: "Afternoon" },
+  ];
+
+  const handleTimeGapChange = (selectedOption) => {
+    setSelectedTimeGap(selectedOption);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Perform form submission logic here
+  };
 
   return (
     <div className="form-container">
@@ -80,20 +104,35 @@ export default function BirthForm() {
         <p className="section-label">Father's Information</p> */}
         <p className="section-label">Schedule Date</p>
         <div className="form-group-birth">
-          <input
-            type="date"
-            id="age"
+          <label htmlFor="scheduleDate">Date</label>
+          <DatePicker
+            id="scheduleDate"
+            selected={selectedDate}
+            onChange={(date) => {
+              setSelectedDate(date);
+              setShowTimeGap(true);
+            }}
+            minDate={calculateStartingDate()} // Set the minimum selectable date to today
             className="bdate-input"
-            onChange={(e) => setDate(e.target.value)}
-            // now {date} will be the selected date value
+            dateFormat="yyyy-MM-dd"
           />
-          {/* <p className="schedule-notifier">Your scheduled date is {date}</p> */}
         </div>
+        {showTimeGap && (
+          <div className="form-group-birth">
+            <label htmlFor="timeGap">Time</label>
+            <Select
+              defaultValue={selectedTimeGap}
+              onChange={handleTimeGapChange}
+              className="type-text"
+              options={timeGapOptions}
+            />
+          </div>
+        )}
         <div className="btn-sections">
           <button type="reset" className="reset-btn" onClick={handleReset}>
             Reset
           </button>
-          <button type="submit" className="submit-btn">
+          <button onClick={handleSubmit} type="submit" className="submit-btn">
             Submit
           </button>
         </div>

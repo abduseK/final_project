@@ -16,9 +16,7 @@ export default function AuthPage() {
   const [loading, setLoading] = useState(false);
   const handleSignUp = (e) => {
     e.preventDefault();
-    console.warn(name, email, password);
     setLoading(true);
-
     // Simulate delay with setTimeout
     setTimeout(() => {
       setLoading(false);
