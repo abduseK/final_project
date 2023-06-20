@@ -2,16 +2,29 @@ import React, { useState } from "react";
 import * as Components from "./Components.jsx";
 import "./auth.css";
 import AnimatedPage from "../AnimatedPage.jsx";
+import { useNavigate } from "react-router-dom";
+import SyncLoader from "react-spinners/SyncLoader";
 
 export default function AuthPage() {
   const [signIn, toggle] = React.useState(true);
-
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [email2, setEmail2] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleSignUp = (e) => {
     e.preventDefault();
     console.warn(name, email, password);
+    setLoading(true);
+
+    // Simulate delay with setTimeout
+    setTimeout(() => {
+      setLoading(false);
+      // toggle(true);
+      navigate("/admin/admin/settings");
+    }, 2000);
   };
 
   const handleSingIn = (e) => {
@@ -45,7 +58,11 @@ export default function AuthPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <Components.Button onClick={handleSignUp}>
-                Sign Up
+                {loading ? (
+                  <SyncLoader color="#00a967" loading={loading} size={10} />
+                ) : (
+                  "Sign Up"
+                )}
               </Components.Button>
             </Components.Form>
           </Components.SignUpContainer>
@@ -56,14 +73,14 @@ export default function AuthPage() {
               <Components.Input
                 type="email"
                 placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={email2}
+                onChange={(e) => setEmail2(e.target.value)}
               />
               <Components.Input
                 type="password"
                 placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={password2}
+                onChange={(e) => setPassword2(e.target.value)}
               />
               <Components.Anchor href="#">
                 Forgot your password?
