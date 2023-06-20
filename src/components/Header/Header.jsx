@@ -50,6 +50,11 @@ export default function Header() {
             </ul>
           </div>
           <li>
+            <Link className="links" to="/users/Auth">
+              Sign Up
+            </Link>
+          </li>
+          <li>
             <Link className="links" to="/admin">
               Account
             </Link>

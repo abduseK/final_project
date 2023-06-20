@@ -20,8 +20,8 @@ export default function AuthPage() {
     // Simulate delay with setTimeout
     setTimeout(() => {
       setLoading(false);
-      // toggle(true);
-      navigate("/admin/admin/settings");
+      toggle(true);
+      // navigate("/admin/admin/settings");
     }, 2000);
   };
 
