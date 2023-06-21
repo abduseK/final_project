@@ -4,25 +4,32 @@
 
 .sidenav {
   position: fixed;
-  width: 400px;
+  width: 200px;
   height: 100%;
-  margin-left: 20px;
-  margin-top: 100px;
-  width: 150px;
-  /* position: absolute; */
-  background: rgb(199, 252, 202);
-  /* height: 95vh; */
+  margin-left: -60px;
+  margin-top: 25px;
+  background: #ffffff;;
   padding-right: 30px;
   transition: all 1s;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
+
+  
+ 
+  
+ 
+}
+.sidenav-menu li a svg {
+  margin-left: 10px; /* Increased margin between icon and text */
 }
 
-ul {
+
+.sidenav-menu {
   padding: 0;
+  margin: 0;
 }
 
-ul li {
+.sidenav-menu li {
   list-style-type: none;
-  /* margin: 0 10px; */
 }
 
 .sidenav-menu li a {
@@ -45,8 +52,10 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: start;
-  height: 80vh;
   gap: 5px;
+  padding: 10px;
+  border-top: 1px solid #00a967;
+  margin-top: 340px;
 }
 
 .profile img {
@@ -57,4 +66,28 @@ ul li {
 .profile p {
   font-weight: bold;
   font-size: 14px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    padding-right: 0;
+  }
+  
+  .sidenav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .sidenav-menu li a {
+    margin-bottom: 0;
+  }
+  
+  .profile {
+    border-top: none;
+  }
 }
