@@ -30,7 +30,7 @@ export default function Admin() {
           <div className="container">
             <div className="sidenav">
               <ul className="sidenav-menu">
-                <h3 className="logo">KKTasks</h3>
+                <h3 className="logo"></h3>
                 <li>
                   <Link to="admin/dashboard">
                     <FaHome className="icon" />
@@ -59,8 +59,6 @@ export default function Admin() {
               <Route exact path="admin/dashboard" element={<Dashboard />} />
               <Route exact path="admin/settings" element={<Settings />} />
               <Route path="admin/pending" element={<Pending />} />
-
-              
             </Routes>
           </div>
         </AnimatedPage>

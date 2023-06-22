@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Components from "./Components.jsx";
 import "./auth.css";
 import AnimatedPage from "../AnimatedPage.jsx";
@@ -9,25 +9,80 @@ export default function AuthPage() {
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [email2, setEmail2] = useState("");
+  const [phone2, setPhone2] = useState("");
   const [password2, setPassword2] = useState("");
   const [loading, setLoading] = useState(false);
-  const handleSignUp = (e) => {
+  const [autheticated, setAuthenticated] = useState(false);
+  const handleSignUp = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     // Simulate delay with setTimeout
-    setTimeout(() => {
+    setTimeout(async () => {
       setLoading(false);
+      let result = await fetch("http://localhost:3004/users/signup", {
+        method: "post",
+        body: JSON.stringify({ name, phone, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      result = await result.json();
+      localStorage.setItem("bearerToken", result.token);
+      localStorage.setItem("user", JSON.stringify(result));
+      localStorage.setItem("isAuthenticated", true);
       toggle(true);
       // navigate("/admin/admin/settings");
     }, 2000);
   };
 
-  const handleSingIn = (e) => {
+  function checkAuthentication() {
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
+
+    if (isAuthenticated) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  }
+
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
+    }
+    checkAuthentication();
+  }, []);
+
+  const handleSingIn = async (e) => {
     e.preventDefault();
-    console.warn(email, password);
+    setLoading(true);
+    setTimeout(async () => {
+      setLoading(false);
+      const token = localStorage.getItem("bearerToken");
+      let result = await fetch("http://localhost:3004/users/login", {
+        method: "post",
+        body: JSON.stringify({ phone, password }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await result.json();
+      localStorage.setItem("beareToken", data.token);
+      localStorage.setItem("user", JSON.stringify(data));
+      setAuthenticated(true);
+      if (result.ok) {
+        navigate("/");
+      } else {
+        console.log(result);
+      }
+      setName("");
+      setPhone("");
+      setPassword("");
+    }, 2000);
   };
 
   return (
@@ -44,10 +99,10 @@ export default function AuthPage() {
                 onChange={(e) => setName(e.target.value)}
               />
               <Components.Input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="Phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <Components.Input
                 type="password"
@@ -57,7 +112,7 @@ export default function AuthPage() {
               />
               <Components.Button onClick={handleSignUp}>
                 {loading ? (
-                  <SyncLoader color="#00a967" loading={loading} size={10} />
+                  <SyncLoader color="#f1f1f1" loading={loading} size={10} />
                 ) : (
                   "Sign Up"
                 )}
@@ -69,10 +124,10 @@ export default function AuthPage() {
             <Components.Form>
               <Components.Title>Sign in</Components.Title>
               <Components.Input
-                type="email"
-                placeholder="Email"
-                value={email2}
-                onChange={(e) => setEmail2(e.target.value)}
+                type="text"
+                placeholder="Phone"
+                value={phone2}
+                onChange={(e) => setPhone2(e.target.value)}
               />
               <Components.Input
                 type="password"
@@ -84,7 +139,11 @@ export default function AuthPage() {
                 Forgot your password?
               </Components.Anchor>
               <Components.Button onClick={handleSingIn}>
-                Sigin In
+                {loading ? (
+                  <SyncLoader color="#f1f1f1" loading={loading} size={10} />
+                ) : (
+                  "Sign In"
+                )}
               </Components.Button>
             </Components.Form>
           </Components.SignInContainer>

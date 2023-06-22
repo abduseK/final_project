@@ -4,6 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import dot from "./full-stop.png";
 
 export default function Header() {
+  const auth = localStorage.getItem("user");
+
+  const logout = () => {
+    localStorage.clear();
+    Navigate("/users/auth");
+  };
   const [open, setOpen] = useState(false);
 
   let menuRef = useRef(null);
@@ -50,9 +56,15 @@ export default function Header() {
             </ul>
           </div>
           <li>
-            <Link className="links" to="/users/Auth">
-              Sign Up
-            </Link>
+            {auth ? (
+              <Link onClick={logout} className="links" to="/users/Auth">
+                LogOut
+              </Link>
+            ) : (
+              <Link className="links" to="/users/Auth">
+                Sign Up
+              </Link>
+            )}
           </li>
           <li>
             <Link className="links" to="/admin">
