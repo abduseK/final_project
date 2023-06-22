@@ -332,6 +332,11 @@ function IDForm() {
     { value: "morning", label: "Morning" },
     { value: "afternoon", label: "Afternoon" },
   ];
+  const maritialStatusOptions = [
+    { value: "married", label: "Married" },
+    { value: "unmarried", label: "Unmarried" },
+    { value: "divorce", label: "Divorce" },
+  ];
 
   const handleTimeGapChange = (selectedOption) => {
     setSelectedTimeGap(selectedOption);
@@ -350,63 +355,99 @@ function IDForm() {
       </div>
       <div className="form-container">
         <h2>ID Application Form</h2>
-        <p className="form-description">
-          Fill out all the necessary informations and <span>schedule</span> your
-          date to collect!
-        </p>
+        {/* <p className="form-description">
+              Fill out all the necessary information and <span>schedule</span>{" "}
+              your date to collect!
+            </p> */}
+            {/* fieldsets */}
+            <fieldset
+              style={{
+                padding: 0,
+                borderLeft: "6px solid #00a967",
+                borderRight: "none",
+                marginLeft: "-1px", 
+                marginTop:"-10px",
+                paddingBottom: "9px" 
+              }}
+              
+            >
+              <h2 className="fs-title">Personal Information</h2>
         <form className="form" autoComplete="off">
-          <p className="section-label">Personal Information</p>
 
           <div className="form-sections">
-            <div className="form-group">
-              <label htmlFor="fname">First Name</label>
-              <input type="text" id="fname" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="mname">Middle Name</label>
-              <input type="text" id="mname" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="lname">Last Name</label>
-              <input type="text" id="lname" />
-            </div>
-          </div>
-          <div className="form-sections">
-            <div className="form-group">
-              <label htmlFor="nationality">Nationality</label>
-              <input type="text" id="nationality" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="address">Place of Birth</label>
-              <input type="text" id="address" />
-            </div>
-          </div>
-          <div className="form-sections">
-            <div className="form-group">
-              <label htmlFor="sex">Sex</label>
-              {/* we can use selectedOption.value or selectedValue.label to extract the values */}
-              <Select
-                defaultValue={selectedOption}
-                onChange={setSelectedOption}
-                className="type-text"
-                options={genderOptions}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="weight">Weight</label>
-              <input type="text" id="weight" />
-            </div>
-          </div>
-          <div className="form-sections">
-            <div className="form-group">
-              <label htmlFor="delMethod">Delivery Method</label>
-              <input type="text" id="delMethod" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="attProfessional">Attendant Professionsl</label>
-              <input type="text" id="attProfessional" />
-            </div>
-          </div>
+                  <div className="form-group">
+                    <label htmlFor="fname">First Name</label>
+                    <input type="text" id="fname" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="mname">Middle Name</label>
+                    <input type="text" id="mname" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="lname">Last Name</label>
+                    <input type="text" id="lname" />
+                  </div>
+                </div>
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="nationality">Nationality</label>
+                    <input type="text" id="nationality" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="address">Address</label>
+                    <input type="text" id="address" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="religion">Religion</label>
+                    {/* <Select
+                    defaultValue={selectedOption}
+                    onChange={setSelectedOption}
+                    className="type-text"
+                    options={religionOptions}
+                  /> */}
+                    <input type="text" id="religion" />
+                  </div>
+                </div>
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="Mstatus">Marital Status</label>
+                    <Select
+                      defaultValue={selectedOption}
+                      onChange={setSelectedOption}
+                      className="type-text"
+                      options={maritialStatusOptions}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Mstatus">Gender</label>
+                    <Select
+                      defaultValue={selectedOption}
+                      onChange={setSelectedOption}
+                      className="type-text"
+                      options={genderOptions}
+                    />
+                  </div>
+                  <div className="form-group-birth">
+                    <p>Birth Date</p>
+                    <input
+                      type="date"
+                      id="age"
+                      className="bdate-input"
+                      onChange={(e) => setDate(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="fname">Mother's Name</label>
+                    <input type="text" id="fname" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="mname">Occupation</label>
+                    <input type="text" id="mname" />
+                  </div>
+                  
+                </div>
           {/* <p className="section-label">Mother's Information</p>
         <p className="section-label">Father's Information</p> */}
           <p className="section-label">Schedule Date</p>
@@ -444,6 +485,7 @@ function IDForm() {
             </button>
           </div>
         </form>
+        </fieldset>
       </div>
     </div>
   );

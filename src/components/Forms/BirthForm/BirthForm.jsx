@@ -111,11 +111,11 @@ function BirthForm() {
                     <input type="text" id="nationality" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="address">Place of Birth</label>
                     <input type="text" id="address" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="religion">Religion</label>
+                    <label htmlFor="religion">Weight</label>
                     {/* <Select
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
@@ -125,16 +125,18 @@ function BirthForm() {
                     <input type="text" id="religion" />
                   </div>
                 </div>
+                
                 <div className="form-sections">
-                  <div className="form-group">
-                    <label htmlFor="Mstatus">Marital Status</label>
-                    <Select
-                      defaultValue={selectedOption}
-                      onChange={setSelectedOption}
-                      className="type-text"
-                      options={maritialStatusOptions}
-                    />
+                <div className="form-group">
+                    <label htmlFor="address">Delivery Method</label>
+                    <input type="text" id="address" />
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="address">Attendant Profetional</label>
+                    <input type="text" id="address" />
+                  </div>
+                </div>
+                <div className="form-sections">
                   <div className="form-group">
                     <label htmlFor="Mstatus">Gender</label>
                     <Select
@@ -154,6 +156,7 @@ function BirthForm() {
                     />
                   </div>
                 </div>
+                
                 <div className="form-sections"></div>
                 <div className="btn-sections" style={{ marginTop: "5px" }}>
                   <button

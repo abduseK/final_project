@@ -29,6 +29,18 @@ export default function DeathForm() {
         Fill out all the necessary informations and <span>schedule</span> your
         date to collect!
       </p>
+      <fieldset
+              style={{
+                padding: 0,
+                borderLeft: "6px solid #00a967",
+                borderRight: "none",
+                marginLeft: "-1px", 
+                marginTop:"-10px",
+                paddingBottom: "9px",
+                paddingTop: "9px" 
+              }}
+              
+            >
       <form className="form" autoComplete="off">
         <p className="section-label">Deacesed Resident Information</p>
 
@@ -51,6 +63,15 @@ export default function DeathForm() {
             <label htmlFor="address">Place of Death</label>
             <input type="text" id="address" />
           </div>
+          <div className="form-group-birth">
+                    <p>Death Date</p>
+                    <input
+                      type="date"
+                      id="age"
+                      className="bdate-input"
+                      onChange={(e) => setDate(e.target.value)}
+                    />
+                  </div>
         </div>
         <div className="form-sections">
           <div className="form-group">
@@ -84,6 +105,7 @@ export default function DeathForm() {
           </button>
         </div>
       </form>
+      </fieldset>
     </div>
     </div>
   );

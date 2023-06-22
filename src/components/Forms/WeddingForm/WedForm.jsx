@@ -30,6 +30,17 @@ export default function WedForm() {
         Fill out all the necessary informations and <span>schedule</span> your
         date to collect!
       </p>
+      <fieldset
+              style={{
+                padding: 0,
+                borderLeft: "6px solid #00a967",
+                borderRight: "none",
+                marginLeft: "-1px", 
+                marginTop:"-10px",
+                paddingBottom: "9px" 
+              }}
+              
+            >
       <form className="form" autoComplete="off">
         <p className="section-label">Husband's Information</p>
         <div className="form-sections">
@@ -98,6 +109,7 @@ export default function WedForm() {
           </button>
         </div>
       </form>
+      </fieldset>
     </div>
     </div>
   );
