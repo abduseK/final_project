@@ -1,5 +1,5 @@
 // import React, { useState } from "react";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 // import Select from "react-select";
 import Select from "react-select";
 
@@ -17,19 +17,18 @@ import "./RRForm.css";
 //     'Witness 4',
 //     'Witness 5',
 
-export default function RRForm() {
-  
-  const [name, setName] = useState('');
-  const [id, setId] = useState('');
-  const [phone, setPhone] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+function RRForm() {
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
+  const [phone, setPhone] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([
-    'Witness 1',
-    'Witness 2',
-    'Witness 3',
-    'Witness 4',
-    'Witness 5',
+    "Witness 1",
+    "Witness 2",
+    "Witness 3",
+    "Witness 4",
+    "Witness 5",
   ]);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
@@ -40,32 +39,36 @@ export default function RRForm() {
 
   const handleItemClick = (item) => {
     if (selectedItems.includes(item)) {
-      setSelectedItems(selectedItems.filter((selectedItem) => selectedItem !== item));
+      setSelectedItems(
+        selectedItems.filter((selectedItem) => selectedItem !== item)
+      );
     } else {
       if (selectedItems.length < 3) {
         setSelectedItems([...selectedItems, item]);
       }
     }
-    setSearchTerm('');
+    setSearchTerm("");
     setDropdownVisible(false);
   };
 
   const handleRemoveWitness = (item) => {
-    setSelectedItems(selectedItems.filter((selectedItem) => selectedItem !== item));
+    setSelectedItems(
+      selectedItems.filter((selectedItem) => selectedItem !== item)
+    );
   };
 
   const handleAddWitness = () => {
     // Perform the necessary logic for adding the witness
-    console.log('Witness Added');
-    console.log('Name:', name);
-    console.log('ID:', id);
-    console.log('Phone:', phone);
-    console.log('Selected Witnesses:', selectedItems);
+    console.log("Witness Added");
+    console.log("Name:", name);
+    console.log("ID:", id);
+    console.log("Phone:", phone);
+    console.log("Selected Witnesses:", selectedItems);
 
     // Reset the form fields
-    setName('');
-    setId('');
-    setPhone('');
+    setName("");
+    setId("");
+    setPhone("");
     setSelectedItems([]);
   };
 
@@ -76,9 +79,9 @@ export default function RRForm() {
       }
     };
 
-    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
   const handleReset = (event) => {
@@ -104,9 +107,22 @@ export default function RRForm() {
     { value: "manually", label: "Enter Manually" },
   ];
 
+  const occupationOptions = [
+    { value: "employed", label: "Employed" },
+    { value: "unemployed", label: "UnEmployed" },
+  ];
+  const educationOptions = [
+    { value: "high-school", label: "High School" },
+    { value: "college", label: "College" },
+    { value: "graduate", label: "Graduate" },
+    { value: "uneducated", label: "Uneducated" },
+  ];
+
+  const [maritialStatus, setMaritialStatus] = useState();
   const [selectedOption, setSelectedOption] = useState(null);
   const [date, setDate] = useState();
-
+  const [education, setEducation] = useState();
+  const [occupation, setOccupation] = useState();
   const [step, setStep] = useState(1);
 
   const nextStep = () => {
@@ -119,38 +135,58 @@ export default function RRForm() {
 
   return (
     <div>
-     
-      
-    <div className="all">
-      <div className="image-container">
-      <h2 style={{ marginTop: "40px" }}>Residential Registration Application Form</h2>
-        <img src={register} alt="" />
-      </div>
-      <div className="form-container">
-        <div id="msform">
-          
-        <ul id="progressbar" style={{ display: "flex", justifyContent: "space-between" }}>
-  <li className={step === 1 ? "active" : ""} style={{ color: step >= 1 ? "#00a967" : "#59616d" }}>
+      <div className="all">
+        <div className="image-container">
+          <h2 style={{ marginTop: "40px" }}>
+            Residential Registration Application Form
+          </h2>
+          <img src={register} alt="" />
+        </div>
+        <div className="form-container">
+          <div id="msform">
+            <ul
+              id="progressbar"
+              style={{ display: "flex", justifyContent: "space-between" }}
+            >
+              {/* <li className={step === 1 ? "active" : ""} style={{ color: step >= 1 ? "#00a967" : "#59616d" }}>
     Account Setup
-  </li>
-  <li className={step === 2 ? "active" : ""} style={{ color: step >= 2 ? "#00a967" : "#59616d" }}>
-    Personal Information
-  </li>
-  <li className={step === 3 ? "active" : ""} style={{ color: step >= 3 ? "#00a967" : "#59616d" }}>
-  Choose Witness
-  </li>
-</ul>
+  </li> */}
+              <li
+                className={step === 2 ? "active" : ""}
+                style={{ color: step >= 2 ? "#00a967" : "#59616d" }}
+              >
+                Personal Information
+              </li>
+              <li
+                className={step === 3 ? "active" : ""}
+                style={{ color: step >= 3 ? "#00a967" : "#59616d" }}
+              >
+                Choose Witness
+              </li>
+            </ul>
 
-          {/* fieldsets */}
-          <fieldset style={{ display: step === 1 ? "block" : "none" , padding: 0, borderLeft: "6px solid #00a967" , borderRight: "none" }}>
-            <div className="auth-body">
-        <form className="auth-form-validation">
-          <div className="input-field">
-          <input type="email" name="txt" placeholder="User name" required="" class="password-input"/>
-
-          </div>
-          <div className="input-field">
-            {/* <label htmlFor="email" className="input-label">
+            {/* fieldsets */}
+            <fieldset
+              style={{
+                display: step === 1 ? "block" : "none",
+                padding: 0,
+                borderLeft: "6px solid #00a967",
+                borderRight: "none",
+              }}
+            >
+              <div className="auth-body">
+                <form className="auth-form-validation">
+                  <div className="input-field">
+                    <input
+                      type="email"
+                      name="txt"
+                      placeholder="User name"
+                      required=""
+                      class="password-input"
+                    />
+                  </div>
+                  <div className="input-field">
+                    {/* <label htmlFor="email" className="input-label">
               Email address
             </label>
             <input
@@ -161,13 +197,19 @@ export default function RRForm() {
               autoComplete="off"
               required
             /> */}
-            <input type="email" name="email" placeholder="Email" required="" class="password-input"/>
-          </div>
-          <div className="input-field">
-            {/* <label htmlFor="password" className="input-label">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required=""
+                      class="password-input"
+                    />
+                  </div>
+                  <div className="input-field">
+                    {/* <label htmlFor="password" className="input-label">
               Password
             </label> */}
-            {/* <input
+                    {/* <input
               type="password"
               name="password"
               id="password"
@@ -176,199 +218,272 @@ export default function RRForm() {
               autoComplete="off"
               required
             /> */}
-            <input type="password" name="pswd" placeholder="Password" required=""  class="password-input"/>
-
-
-          </div>
-         
-        </form>
-        
-      </div>
-            <button type="button" className="next action-button" onClick={nextStep}>
-              Next
-            </button>
-          </fieldset>
-          <fieldset style={{ display: step === 2 ? "block" : "none", padding: 0, borderLeft: "6px solid #00a967" , borderRight: "none" }}>
-            <h2 className="fs-title">Personal Information</h2>
-            {/* <h3 className="fs-subtitle">Fill out your personal information</h3> */}
-            <form className="form" autoComplete="off">
-              <div className="form-sections">
-                <div className="form-group">
-                  <label htmlFor="fname">First Name</label>
-                  <input type="text" id="fname" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="mname">Middle Name</label>
-                  <input type="text" id="mname" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="lname">Last Name</label>
-                  <input type="text" id="lname" />
-                </div>
+                    <input
+                      type="password"
+                      name="pswd"
+                      placeholder="Password"
+                      required=""
+                      class="password-input"
+                    />
+                  </div>
+                </form>
               </div>
-              <div className="form-sections">
-                <div className="form-group">
-                  <label htmlFor="nationality">Nationality</label>
-                  <input type="text" id="nationality" />
+              <button
+                type="button"
+                className="next action-button"
+                onClick={nextStep}
+              >
+                Next
+              </button>
+            </fieldset>
+            <fieldset
+              style={{
+                display: step === 2 ? "block" : "none",
+                padding: 0,
+                borderLeft: "6px solid #00a967",
+                borderRight: "none",
+              }}
+            >
+              <h2 className="fs-title">Personal Information</h2>
+              {/* <h3 className="fs-subtitle">Fill out your personal information</h3> */}
+              <form className="form" autoComplete="off">
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="fname">Name</label>
+                    <input type="text" id="fname" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="fname">Father Name</label>
+                    <input type="text" id="fname" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="gname">Grandfather Name</label>
+                    <input type="text" id="gname" />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="address">Address</label>
-                  <input type="text" id="address" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="religion">Religion</label>
-                  {/* <Select
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="nationality">Nationality</label>
+                    <input type="text" id="nationality" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="address">Address</label>
+                    <input type="text" id="address" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="religion">Religion</label>
+                    {/* <Select
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
                     className="type-text"
                     options={religionOptions}
                   /> */}
-                  <input type="text" id="religion" />
-
+                    <input type="text" id="religion" />
+                  </div>
                 </div>
-              </div>
-              <div className="form-sections">
-                <div className="form-group">
-                  <label htmlFor="Mstatus">Marital Status</label>
-                  <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    className="type-text"
-                    options={maritialStatusOptions}
-                  />
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="Mstatus">Marital Status</label>
+                    <Select
+                      defaultValue={maritialStatus}
+                      onChange={setMaritialStatus}
+                      className="type-text"
+                      options={maritialStatusOptions}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="sex">sex</label>
+                    <Select
+                      defaultValue={selectedOption}
+                      onChange={setSelectedOption}
+                      className="type-text"
+                      options={genderOptions}
+                    />
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="Mstatus">Gender</label>
-                  <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    className="type-text"
-                    options={genderOptions}
-                  />
+                <div className="form-sections">
+                  <div className="form-group-birth">
+                    <p>Date of Birth</p>
+                    <input
+                      type="date"
+                      id="age"
+                      className="bdate-input"
+                      onChange={(e) => setDate(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="age">Age</label>
+                    <input type="text" id="age" />
+                  </div>
                 </div>
-                <div className="form-group-birth">
-                  <p>Birth Date</p>
-                  <input
-                    type="date"
-                    id="age"
-                    className="bdate-input"
-                    onChange={(e) => setDate(e.target.value)}
-                  />
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="edlevel">Education Level</label>
+                    <Select
+                      defaultValue={education}
+                      onChange={setEducation}
+                      className="type-text"
+                      options={educationOptions}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="occupation">Occupation</label>
+                    <Select
+                      defaultValue={occupation}
+                      onChange={setOccupation}
+                      className="type-text"
+                      options={occupationOptions}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="form-sections">
-                
-                <div className="form-group-birth">
-                  <p>Since when did you start living in the woreda?</p>
-                  <input
-                    type="date"
-                    id="age"
-                    className="bdate-input"
-                    onChange={(e) => setDate(e.target.value)}
-                  />
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="pbirth">Place of Birth</label>
+                    <input type="text" id="pbirth" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="pnumber">Phone Number</label>
+                    <input type="text" id="pnumber" />
+                  </div>
                 </div>
-              </div>
-              <div className="btn-sections" style={{ marginTop: "5px" }}>
-                <button type="button" className="previous action-button" onClick={previousStep}>
-                  Previous
-                </button>
-                <button type="reset" className="reset-btn" onClick={handleReset}>
-                  Reset
-                </button>
-                <button type="button" className="next action-button" onClick={nextStep}>
-                  Next
-                </button>
-              </div>
-            </form>
-          </fieldset>
-          <fieldset style={{ display: step === 3 ? "block" : "none" , padding: 0, borderLeft: "6px solid #00a967" , borderRight: "none" }}>
-          <div className="witness-form">
-      <h2 className="fs-title">Witness</h2>
-      <p>Choose three witnesses who are registered residents</p>
-      <h6>Witness Number 1</h6>
-      <input
-        type="text"
-        name="name"
-        placeholder="Full Name"
-        required=""
-        className="password-input"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        name="id"
-        placeholder="ID Number"
-        required=""
-        className="password-input"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-      />
-      <input
-        type="text"
-        name="phone"
-        placeholder="Phone"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-      <div className="dropdown" ref={dropdownRef}>
-      {selectedItems.length > 0 && (
-          <div className="selected-items">
-            <h4>Selected Witness Number 1:</h4>
-            <ul>
-              {selectedItems.map((item) => (
-                <li key={item}>
-                  {item}
-                  <button className="remove-witness" onClick={() => handleRemoveWitness(item)}>
-                    x
+                <div className="form-sections">
+                  <div className="form-group">
+                    <label htmlFor="emcontact">Emergency Contact</label>
+                    <input type="text" id="emcontact" />
+                  </div>
+                </div>
+                <div className="btn-sections" style={{ marginTop: "5px" }}>
+                  <button
+                    type="button"
+                    className="previous action-button"
+                    onClick={previousStep}
+                  >
+                    Previous
                   </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={handleSearch}
-          onFocus={() => setDropdownVisible(true)}
-        />
-        {isDropdownVisible && searchTerm && filteredItems.length > 0 && (
-          <div className="dropdown-menu">
-            {filteredItems.map((item) => (
-              <div
-                key={item}
-                className={`menu-item ${selectedItems.includes(item) ? 'selected' : ''}`}
-                onClick={() => handleItemClick(item)}
-              >
-                {item}
+                  <button
+                    type="reset"
+                    className="reset-btn"
+                    onClick={handleReset}
+                  >
+                    Reset
+                  </button>
+                  <button
+                    type="button"
+                    className="next action-button"
+                    onClick={nextStep}
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </fieldset>
+            <fieldset
+              style={{
+                display: step === 3 ? "block" : "none",
+                padding: 0,
+                borderLeft: "6px solid #00a967",
+                borderRight: "none",
+              }}
+            >
+              <div className="witness-form">
+                <h2 className="fs-title">Witness</h2>
+                <p>Choose three witnesses who are registered residents</p>
+                <h6>Witness Number 1</h6>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  required=""
+                  className="password-input"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  name="id"
+                  placeholder="ID Number"
+                  required=""
+                  className="password-input"
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <div className="dropdown" ref={dropdownRef}>
+                  {selectedItems.length > 0 && (
+                    <div className="selected-items">
+                      <h4>Selected Witness Number 1:</h4>
+                      <ul>
+                        {selectedItems.map((item) => (
+                          <li key={item}>
+                            {item}
+                            <button
+                              className="remove-witness"
+                              onClick={() => handleRemoveWitness(item)}
+                            >
+                              x
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    onFocus={() => setDropdownVisible(true)}
+                  />
+                  {isDropdownVisible &&
+                    searchTerm &&
+                    filteredItems.length > 0 && (
+                      <div className="dropdown-menu">
+                        {filteredItems.map((item) => (
+                          <div
+                            key={item}
+                            className={`menu-item ${
+                              selectedItems.includes(item) ? "selected" : ""
+                            }`}
+                            onClick={() => handleItemClick(item)}
+                          >
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                </div>
+                <button
+                  type="button"
+                  className="submit-btn"
+                  onClick={handleAddWitness}
+                  disabled={selectedItems.length !== 3}
+                >
+                  Add Witness
+                </button>
               </div>
-            ))}
-          </div>
-        )}
-        
-      </div>
-      <button
-        type="button"
-        className="submit-btn"
-        onClick={handleAddWitness}
-        disabled={selectedItems.length !== 3}
-      >
-        Add Witness
-      </button>
-    </div>
 
-            <button type="button" className="previous action-button" onClick={previousStep}>
-              Previous
-            </button>
-            <button type="submit" className="submit-btn">
-            Submit
-          </button>
-          </fieldset>
+              <button
+                type="button"
+                className="previous action-button"
+                onClick={previousStep}
+              >
+                Previous
+              </button>
+              <button type="submit" className="submit-btn">
+                Submit
+              </button>
+            </fieldset>
+          </div>
         </div>
       </div>
     </div>
-    </div>
   );
 }
+
+export default RRForm;

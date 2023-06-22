@@ -3,6 +3,8 @@ import Select from "react-select";
 import "../IdForm//IDForm.css";
 import idimage from "./Bcert.png";
 import "../ResidentRegForm/RRForm.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function BirthForm() {
   const handleReset = (event) => {
@@ -30,8 +32,25 @@ function BirthForm() {
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [date, setDate] = useState();
-
+  const [selectedDate, setSelectedDate] = useState("");
+  const [showTimeGap, setShowTimeGap] = useState(false);
+  const [selectedTimeGap, setSelectedTimeGap] = useState(null);
   const [step, setStep] = useState(1);
+
+  const calculateStartingDate = () => {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 10);
+    return currentDate;
+  };
+
+  const timeGapOptions = [
+    { value: "morning", label: "Morning" },
+    { value: "afternoon", label: "Afternoon" },
+  ];
+
+  const handleTimeGapChange = (selectedOption) => {
+    setSelectedTimeGap(selectedOption);
+  };
 
   const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
@@ -111,18 +130,14 @@ function BirthForm() {
                     <input type="text" id="nationality" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="address">Address</label>
-                    <input type="text" id="address" />
+                    <label htmlFor="weight">Weight</label>
+                    <input type="text" id="weight" />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="religion">Religion</label>
-                    {/* <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    className="type-text"
-                    options={religionOptions}
-                  /> */}
-                    <input type="text" id="religion" />
+                    <label htmlFor="attprofessional">
+                      Attendant Professional
+                    </label>
+                    <input type="text" id="attprofessional" />
                   </div>
                 </div>
                 <div className="form-sections">
@@ -136,7 +151,7 @@ function BirthForm() {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="Mstatus">Gender</label>
+                    <label htmlFor="sex">Sex</label>
                     <Select
                       defaultValue={selectedOption}
                       onChange={setSelectedOption}
@@ -145,7 +160,7 @@ function BirthForm() {
                     />
                   </div>
                   <div className="form-group-birth">
-                    <p>Birth Date</p>
+                    <p>Date of Birth</p>
                     <input
                       type="date"
                       id="age"
@@ -262,15 +277,30 @@ function BirthForm() {
                 </div>
                 <p className="section-label">Schedule Date</p>
                 <div className="form-group-birth">
-                  <input
-                    type="date"
-                    id="age"
+                  <label htmlFor="scheduleDate">Date</label>
+                  <DatePicker
+                    id="scheduleDate"
+                    selected={selectedDate}
+                    onChange={(date) => {
+                      setSelectedDate(date);
+                      setShowTimeGap(true);
+                    }}
+                    minDate={calculateStartingDate()} // Set the minimum selectable date to today
                     className="bdate-input"
-                    onChange={(e) => setDate(e.target.value)}
-                    // now {date} will be the selected date value
+                    dateFormat="yyyy-MM-dd"
                   />
-                  {/* <p className="schedule-notifier">Your scheduled date is {date}</p> */}
                 </div>
+                {showTimeGap && (
+                  <div className="form-group-birth">
+                    <label htmlFor="timeGap">Time</label>
+                    <Select
+                      defaultValue={selectedTimeGap}
+                      onChange={handleTimeGapChange}
+                      className="type-text"
+                      options={timeGapOptions}
+                    />
+                  </div>
+                )}
                 <div className="btn-sections" style={{ marginTop: "5px" }}>
                   <button
                     type="button"
