@@ -60,6 +60,72 @@
   background-color: #00a967;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.menu-items li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.selected-items {
+  margin-top: 20px;
+}
+
+.selected-items h4 {
+  margin-bottom: 5px;
+}
+
+.selected-list li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+
+.password-input {
+    width: 60%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  
+
 .fs-title {
   font-size: 18px;
   text-transform: uppercase;
