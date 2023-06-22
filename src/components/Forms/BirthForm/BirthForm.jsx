@@ -3,6 +3,9 @@ import Select from "react-select";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import idimage from "./Bcert.png";
+// import idimage from "./birth.jpg";
+
 
 export default function BirthForm() {
   const handleReset = (event) => {
@@ -41,6 +44,11 @@ export default function BirthForm() {
   };
 
   return (
+    <div className="all">
+      <div className="image-container">
+      <h2 style={{ marginTop: "40px" }}>Birth Certificate Application </h2>
+        <img src={idimage} alt="" />
+      </div>
     <div className="form-container">
       <h2>Birth Certificate Application Form</h2>
       <p className="form-description">
@@ -137,6 +145,7 @@ export default function BirthForm() {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

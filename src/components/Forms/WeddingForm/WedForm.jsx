@@ -1,6 +1,8 @@
 import React from "react";
 import Select from "react-select";
 import { useState } from "react";
+import idimage from "./wedding.png";
+
 
 export default function WedForm() {
   const handleReset = (event) => {
@@ -17,6 +19,11 @@ export default function WedForm() {
   const [date, setDate] = useState();
 
   return (
+    <div className="all">
+    <div className="image-container">
+    <h2 style={{ marginTop: "40px" }}>Wedding Certificate Application </h2>
+      <img src={idimage} alt="" />
+    </div>
     <div className="form-container">
       <h2>Wedding Certificate Application Form</h2>
       <p className="form-description">
@@ -91,6 +98,7 @@ export default function WedForm() {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 }
