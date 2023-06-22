@@ -1,7 +1,6 @@
 import React from "react";
 import Select from "react-select";
 import { useState } from "react";
-import idimage from "./8605345.jpg";
 
 export default function DeathForm() {
   const handleReset = (event) => {
@@ -18,11 +17,6 @@ export default function DeathForm() {
   const [date, setDate] = useState();
 
   return (
-    <div className="all">
-    <div className="image-container">
-    <h2 style={{ marginTop: "40px" }}>Death Certificate Application </h2>
-      <img src={idimage} alt="" />
-    </div>
     <div className="form-container">
       <h2>Death Certificate Application Form</h2>
       <p className="form-description">
@@ -84,7 +78,6 @@ export default function DeathForm() {
           </button>
         </div>
       </form>
-    </div>
     </div>
   );
 }

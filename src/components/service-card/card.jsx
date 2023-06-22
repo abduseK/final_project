@@ -16,6 +16,7 @@ import RRForm from "../Forms/ResidentRegForm/RRForm";
 import { useState } from "react";
 import SuccessImage from "../Forms/Complain/image2.svg";
 import SyncLoader from "react-spinners/SyncLoader";
+import PrivateComponents from "../PrivateComponents";
 
 export default function ServieCard() {
   const [showDialog, setShowDialog] = useState(false);
@@ -150,12 +151,12 @@ export default function ServieCard() {
         </div>
       </div>
       <Routes>
-        <Route path="/application/id" Component={IDForm} />
-        <Route path="/users/auth" Component={AuthPage} />
         <Route path="/application/birth" Component={BirthForm} />
         <Route path="/application/death" Component={DeathForm} />
         <Route path="/application/wedding" Component={WedForm} />
         <Route path="/application/resident" Component={RRForm} />
+        <Route path="/application/id" Component={IDForm} />
+        <Route path="/users/auth" Component={AuthPage} />
       </Routes>
     </AnimatedPage>
   );

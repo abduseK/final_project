@@ -3,9 +3,6 @@ import Select from "react-select";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import idimage from "./Bcert.png";
-// import idimage from "./birth.jpg";
-
 
 export default function BirthForm() {
   const handleReset = (event) => {
@@ -13,12 +10,25 @@ export default function BirthForm() {
     event.target.form.reset();
   };
 
+  const maritialStatusOptions = [
+    { value: "married", label: "Married" },
+    { value: "unmarried", label: "Unmarried" },
+    { value: "divorce", label: "Divorce" },
+  ];
+
   const genderOptions = [
     { value: "male", label: "Male" },
     { value: "female", label: "Female" },
   ];
 
+  const religionOptions = [
+    { value: "christian", label: "Christian" },
+    { value: "muslim", label: "Muslim" },
+    { value: "catholic", label: "Catholic" },
+    { value: "manually", label: "Enter Manually" },
+  ];
   const [selectedOption, setSelectedOption] = useState(null);
+  const [date, setDate] = useState();
   const [selectedDate, setSelectedDate] = useState("");
   const [showTimeGap, setShowTimeGap] = useState(false);
   const [selectedTimeGap, setSelectedTimeGap] = useState(null);
@@ -38,17 +48,11 @@ export default function BirthForm() {
     setSelectedTimeGap(selectedOption);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Perform form submission logic here
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
-    <div className="all">
-      <div className="image-container">
-      <h2 style={{ marginTop: "40px" }}>Birth Certificate Application </h2>
-        <img src={idimage} alt="" />
-      </div>
     <div className="form-container">
       <h2>Birth Certificate Application Form</h2>
       <p className="form-description">
@@ -60,16 +64,8 @@ export default function BirthForm() {
 
         <div className="form-sections">
           <div className="form-group">
-            <label htmlFor="fname">First Name</label>
+            <label htmlFor="fname">Name of Child</label>
             <input type="text" id="fname" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="mname">Middle Name</label>
-            <input type="text" id="mname" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="lname">Last Name</label>
-            <input type="text" id="lname" />
           </div>
         </div>
         <div className="form-sections">
@@ -78,11 +74,27 @@ export default function BirthForm() {
             <input type="text" id="nationality" />
           </div>
           <div className="form-group">
-            <label htmlFor="address">Place of Birth</label>
-            <input type="text" id="address" />
+            <label htmlFor="weight">Weight</label>
+            <input type="text" id="weight" />
           </div>
         </div>
         <div className="form-sections">
+          <div className="form-group-birth">
+            <p>Date of Birth</p>
+            <input
+              type="date"
+              id="age"
+              className="bdate-input"
+              onChange={(e) => setDate(e.target.value)}
+              // now {date} will be the selected date value
+            />
+          </div>
+        </div>
+        <div className="form-sections">
+          <div className="form-group">
+            <label htmlFor="attprofessional">Attendant Professional</label>
+            <input type="text" id="attprofessional" />
+          </div>
           <div className="form-group">
             <label htmlFor="sex">Sex</label>
             {/* we can use selectedOption.value or selectedValue.label to extract the values */}
@@ -93,23 +105,13 @@ export default function BirthForm() {
               options={genderOptions}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="weight">Weight</label>
-            <input type="text" id="weight" />
-          </div>
         </div>
         <div className="form-sections">
           <div className="form-group">
-            <label htmlFor="delMethod">Delivery Method</label>
-            <input type="text" id="delMethod" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="attProfessional">Attendant Professionsl</label>
-            <input type="text" id="attProfessional" />
+            <label htmlFor="pbirth">Place of Birth</label>
+            <input type="text" id="pbirth" />
           </div>
         </div>
-        {/* <p className="section-label">Mother's Information</p>
-        <p className="section-label">Father's Information</p> */}
         <p className="section-label">Schedule Date</p>
         <div className="form-group-birth">
           <label htmlFor="scheduleDate">Date</label>
@@ -140,12 +142,11 @@ export default function BirthForm() {
           <button type="reset" className="reset-btn" onClick={handleReset}>
             Reset
           </button>
-          <button onClick={handleSubmit} type="submit" className="submit-btn">
+          <button type="submit" onClick={handleSubmit} className="submit-btn">
             Submit
           </button>
         </div>
       </form>
-    </div>
     </div>
   );
 }

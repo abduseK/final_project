@@ -2,9 +2,16 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import dot from "./full-stop.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const auth = localStorage.getItem("user");
   const [open, setOpen] = useState(false);
+
+  const logout = () => {
+    localStorage.clear();
+    Navigate("/users/auth");
+  };
 
   let menuRef = useRef(null);
   useEffect(() => {
@@ -30,14 +37,18 @@ export default function Header() {
           <li>
             <a href="#services">Services</a>
           </li>
-          <div
-            className="menu-trigger"
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            Notification
-          </div>
+          {auth ? (
+            <div
+              className="menu-trigger"
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
+              Notification
+            </div>
+          ) : (
+            ""
+          )}
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             <h2>Notifications</h2>
             <hr />
@@ -50,9 +61,15 @@ export default function Header() {
             </ul>
           </div>
           <li>
-            <Link className="links" to="/users/Auth">
-              Sign Up
-            </Link>
+            {auth ? (
+              <Link onClick={logout} className="links" to="/users/Auth">
+                Logout
+              </Link>
+            ) : (
+              <Link className="links" to="/users/Auth">
+                Sign Up
+              </Link>
+            )}
           </li>
           <li>
             <Link className="links" to="/admin">

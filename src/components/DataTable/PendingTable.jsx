@@ -1,6 +1,6 @@
 import DataTable from "react-data-table-component";
 import "./PendingTable.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export default function PendingTable() {
   const columns = [
     {
@@ -47,43 +47,66 @@ export default function PendingTable() {
     // Handle deny button click
   };
 
-  const data = [
-    {
-      id: 1,
-      name: "Abdelselam Kemal",
-      age: 22,
-      sex: "M",
-      type: "ID card",
-    },
-    {
-      id: 2,
-      name: "Araman Armaan",
-      age: 32,
-      sex: "M",
-      type: "Wedding Cert.",
-    },
-    {
-      id: 3,
-      name: "Habtamu Alemu",
-      age: 26,
-      sex: "M",
-      type: "Wedding Cert.",
-    },
-    {
-      id: 4,
-      name: "Ashraf Hakime",
-      age: 29,
-      sex: "F",
-      type: "Death Cert.",
-    },
-    {
-      id: 5,
-      name: "Gedion Getachew",
-      age: 23,
-      sex: "M",
-      type: "Birth Cert.",
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/resident/pending")
+      .then((response) => response.json())
+      .then((responseData) => {
+        if (!Array.isArray(responseData)) {
+          throw new Error("Response data is not an array");
+        }
+        const tData = responseData.map((datas) => {
+          return {
+            name: datas.body.name,
+            age: datas.body.age,
+            sex: datas.body.sex,
+            type: datas.type,
+          };
+        });
+        setData(tData);
+      })
+      .catch((error) => {
+        console.log("Error fetching: ", error);
+      });
+  }, []);
+  // const data = [
+  //   {
+  //     id: 1,
+  //     name: "Abdelselam Kemal",
+  //     age: 22,
+  //     sex: "M",
+  //     type: "ID card",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Araman Armaan",
+  //     age: 32,
+  //     sex: "M",
+  //     type: "Wedding Cert.",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Habtamu Alemu",
+  //     age: 26,
+  //     sex: "M",
+  //     type: "Wedding Cert.",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Ashraf Hakime",
+  //     age: 29,
+  //     sex: "F",
+  //     type: "Death Cert.",
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Gedion Getachew",
+  //     age: 23,
+  //     sex: "M",
+  //     type: "Birth Cert.",
+  //   },
+  // ];
 
   const [records, setRecords] = useState(data);
 
