@@ -13,6 +13,8 @@ import DeathForm from "./components/Forms/DeathForm/DeathForm.jsx";
 import WedForm from "./components/Forms/WeddingForm/WedForm.jsx";
 import RRForm from "./components/Forms/ResidentRegForm/RRForm.jsx";
 import HashLoader from "react-spinners/HashLoader";
+import WitnessForm from "./components/Forms/WitnessForm/WitnessForm.jsx";
+import RejectForm from "./components/Forms/RejectForm/RejectForm.jsx";
 function App() {
   const [loading, setLoading] = useState(false);
 
@@ -40,6 +42,8 @@ function App() {
             <Route path="/application/death" Component={DeathForm} />
             <Route path="/application/wedding" Component={WedForm} />
             <Route path="/application/resident" Component={RRForm} />
+            <Route path="/application/reject" Component={RejectForm} />
+            <Route path="/application/witness" Component={WitnessForm} />
             <Route path="/users/login" Component={Login} />
             <Route path="/users/auth" Component={AuthPage} />
           </Routes>

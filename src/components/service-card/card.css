@@ -1,4 +1,4 @@
-.card--imgs {
+/* .card--imgs {
   width: 130px;
   padding-left: 40px;
   display: flex;
@@ -52,6 +52,169 @@ a {
 .complian-dialog-img {
   width: 40%;
   margin-left: 30%;
+}
+
+.complain-header {
+  margin-left: 20%;
+}
+
+.success-header {
+  margin-left: 20%;
+}
+.address {
+  color: #00a967;
+  font-style: italic;
+}
+
+.complain-intro {
+  margin-bottom: 15px;
+}
+
+.btns-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.complain-text-area {
+  width: 350px;
+  height: 50px;
+}
+
+.btns-1 button {
+  background-color: #00a967;
+  color: white;
+} */
+
+.card--imgs {
+  width: 130px;
+  padding-left: 40px;
+  display: flex;
+}
+
+.card-grid {
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+  transition: 0.5s;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+}
+
+.card--title {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.card--description {
+  font-size: 13px;
+  font-style: italic;
+  color: grey;
+}
+
+.back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Black with 70% transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.complian-dialog-img {
+  width: 40%;
+  margin-left: 30%;
+}
+
+.updateContainer {
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  justify-content: center;
+}
+
+.updateBox {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.updateBox a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin: -0.5rem;
+  transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+  text-decoration: none;
+}
+
+.updateBox a:hover {
+  background-color: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.updateBox a img {
+  flex-shrink: 0;
+  object-fit: cover;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.25rem;
+  border-radius: 9999px;
+}
+
+.updateBox a p {
+  margin: 0 0.5rem;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.updateBox a .font-bold {
+  font-weight: 700;
+}
+
+.updateBox a .text-blue-500:hover {
+  text-decoration: underline;
+}
+
+.updateBox a:last-child {
+  border-bottom: none;
 }
 
 .complain-header {
