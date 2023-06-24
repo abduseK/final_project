@@ -1,26 +1,10 @@
 // import React, { useState } from "react";
 import React, { useState, useEffect, useRef } from "react";
-// import Select from "react-select";
 import Select from "react-select";
-
 import register from "./register2.png";
 import "./RRForm.css";
-// 'Tinsae',
-//     'Bereket',
-//     'Abdu',
-//     'Gedihon',
-//     'Item 5',
-//     'Item 6',
-//     'Witness 1',
-//     'Witness 2',
-//     'Witness 3',
-//     'Witness 4',
-//     'Witness 5',
 
 function RRForm() {
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [phone, setPhone] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([
@@ -131,6 +115,67 @@ function RRForm() {
 
   const previousStep = () => {
     setStep((prevStep) => prevStep - 1);
+  };
+
+  const [name, setRName] = useState("");
+  const [fatherName, setFatherName] = useState("");
+  const [grandFatherName, setGrandFatherName] = useState("");
+  const [age, setAge] = useState("");
+  const [nationality, setNationality] = useState("");
+  const [placeOfBirth, setPlaceOfBirth] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState();
+  const [sex, setSex] = useState();
+  const [address, setAddress] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [emergencyContact, setEmergencyContact] = useState();
+  const [schedule, setSchedule] = useState();
+  const [religion, setReligion] = useState();
+  const [witnessName, setWitnessName] = useState("");
+  const [witnessID, setWitnessID] = useState("");
+  const [witnessPhone, setWitnessPhone] = useState("");
+
+  const formData = {
+    name,
+    fatherName,
+    grandFatherName,
+    age,
+    nationality,
+    sex,
+    placeOfBirth,
+    dateOfBirth,
+    address,
+    phoneNumber,
+    emergencyContact,
+    education,
+    occupation,
+    maritialStatus,
+    witnessName,
+    witnessID,
+    religion,
+    witnessPhone,
+    schedule,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
+  const handleOccupationChange = (e) => {
+    const selectedValue = e.value;
+    setOccupation(selectedValue);
+  };
+  const handleSexChange = (e) => {
+    const selectedValue = e.value;
+    setSex(selectedValue);
+  };
+  const handleEducationChange = (e) => {
+    const selectedValue = e.value;
+    setEducation(selectedValue);
+  };
+  const handleMaritialStatusChange = (e) => {
+    const selectedValue = e.value;
+    setMaritialStatus(selectedValue);
   };
 
   return (
@@ -250,25 +295,55 @@ function RRForm() {
                 <div className="form-sections">
                   <div className="form-group">
                     <label htmlFor="fname">Name</label>
-                    <input type="text" id="fname" />
+                    <input
+                      type="text"
+                      id="fname"
+                      onChange={(e) => {
+                        setRName(e.target.value);
+                      }}
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="fname">Father Name</label>
-                    <input type="text" id="fname" />
+                    <input
+                      type="text"
+                      id="fname"
+                      onChange={(e) => {
+                        setFatherName(e.target.value);
+                      }}
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="gname">Grandfather Name</label>
-                    <input type="text" id="gname" />
+                    <input
+                      type="text"
+                      id="gname"
+                      onChange={(e) => {
+                        setGrandFatherName(e.target.value);
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="form-sections">
                   <div className="form-group">
                     <label htmlFor="nationality">Nationality</label>
-                    <input type="text" id="nationality" />
+                    <input
+                      type="text"
+                      id="nationality"
+                      onChange={(e) => {
+                        setNationality(e.target.value);
+                      }}
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="address">Address</label>
-                    <input type="text" id="address" />
+                    <input
+                      type="text"
+                      id="address"
+                      onChange={(e) => {
+                        setAddress(e.target.value);
+                      }}
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="religion">Religion</label>
@@ -278,7 +353,13 @@ function RRForm() {
                     className="type-text"
                     options={religionOptions}
                   /> */}
-                    <input type="text" id="religion" />
+                    <input
+                      type="text"
+                      id="religion"
+                      onChange={(e) => {
+                        setReligion(e.target.value);
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="form-sections">
@@ -286,7 +367,7 @@ function RRForm() {
                     <label htmlFor="Mstatus">Marital Status</label>
                     <Select
                       defaultValue={maritialStatus}
-                      onChange={setMaritialStatus}
+                      onChange={handleMaritialStatusChange}
                       className="type-text"
                       options={maritialStatusOptions}
                     />
@@ -295,7 +376,7 @@ function RRForm() {
                     <label htmlFor="sex">sex</label>
                     <Select
                       defaultValue={selectedOption}
-                      onChange={setSelectedOption}
+                      onChange={handleSexChange}
                       className="type-text"
                       options={genderOptions}
                     />
@@ -308,12 +389,18 @@ function RRForm() {
                       type="date"
                       id="age"
                       className="bdate-input"
-                      onChange={(e) => setDate(e.target.value)}
+                      onChange={(e) => setDateOfBirth(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
                     <label htmlFor="age">Age</label>
-                    <input type="text" id="age" />
+                    <input
+                      type="text"
+                      id="age"
+                      onChange={(e) => {
+                        setAge(e.target.value);
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="form-sections">
@@ -321,7 +408,7 @@ function RRForm() {
                     <label htmlFor="edlevel">Education Level</label>
                     <Select
                       defaultValue={education}
-                      onChange={setEducation}
+                      onChange={handleEducationChange}
                       className="type-text"
                       options={educationOptions}
                     />
@@ -330,7 +417,7 @@ function RRForm() {
                     <label htmlFor="occupation">Occupation</label>
                     <Select
                       defaultValue={occupation}
-                      onChange={setOccupation}
+                      onChange={handleOccupationChange}
                       className="type-text"
                       options={occupationOptions}
                     />
@@ -339,17 +426,35 @@ function RRForm() {
                 <div className="form-sections">
                   <div className="form-group">
                     <label htmlFor="pbirth">Place of Birth</label>
-                    <input type="text" id="pbirth" />
+                    <input
+                      type="text"
+                      id="pbirth"
+                      onChange={(e) => {
+                        setPlaceOfBirth(e.target.value);
+                      }}
+                    />
                   </div>
                   <div className="form-group">
                     <label htmlFor="pnumber">Phone Number</label>
-                    <input type="text" id="pnumber" />
+                    <input
+                      type="text"
+                      id="pnumber"
+                      onChange={(e) => {
+                        setPhoneNumber(e.target.value);
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="form-sections">
                   <div className="form-group">
                     <label htmlFor="emcontact">Emergency Contact</label>
-                    <input type="text" id="emcontact" />
+                    <input
+                      type="text"
+                      id="emcontact"
+                      onChange={(e) => {
+                        setEmergencyContact(e.target.value);
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="btn-sections" style={{ marginTop: "5px" }}>
@@ -387,7 +492,7 @@ function RRForm() {
             >
               <div className="witness-form">
                 <h2 className="fs-title">Witness</h2>
-                <p>Choose three witnesses who are registered residents</p>
+                <p>Choose a witness who is registered residents</p>
                 <h6>Witness Number 1</h6>
                 <input
                   type="text"
@@ -395,8 +500,7 @@ function RRForm() {
                   placeholder="Full Name"
                   required=""
                   className="password-input"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setWitnessName(e.target.value)}
                 />
                 <input
                   type="text"
@@ -404,17 +508,15 @@ function RRForm() {
                   placeholder="ID Number"
                   required=""
                   className="password-input"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
+                  onChange={(e) => setWitnessID(e.target.value)}
                 />
                 <input
                   type="text"
                   name="phone"
                   placeholder="Phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => setWitnessPhone(e.target.value)}
                 />
-                <div className="dropdown" ref={dropdownRef}>
+                {/* <div className="dropdown" ref={dropdownRef}>
                   {selectedItems.length > 0 && (
                     <div className="selected-items">
                       <h4>Selected Witness Number 1:</h4>
@@ -465,7 +567,7 @@ function RRForm() {
                   disabled={selectedItems.length !== 3}
                 >
                   Add Witness
-                </button>
+                </button> */}
               </div>
 
               <button
@@ -475,7 +577,11 @@ function RRForm() {
               >
                 Previous
               </button>
-              <button type="submit" className="submit-btn">
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="submit-btn"
+              >
                 Submit
               </button>
             </fieldset>

@@ -33,7 +33,43 @@ function WedForm() {
   ];
 
   const handleTimeGapChange = (selectedOption) => {
-    setSelectedTimeGap(selectedOption);
+    const selectedValue = selectedOption.value;
+    setSelectedTimeGap(selectedValue);
+  };
+
+  const [wfirstName, setWfirstName] = useState("");
+  const [wlastName, setWlastName] = useState("");
+  const [waddress, setWaddress] = useState("");
+  const [wphone, setWphone] = useState("");
+  const [wage, setWage] = useState("");
+  const [hfirstName, setHfirstName] = useState("");
+  const [hlastName, setHlastName] = useState("");
+  const [haddress, setHaddress] = useState("");
+  const [hphone, setHphone] = useState("");
+  const [hage, setHage] = useState("");
+  const [dateOfMarriage, setDateOfMarriage] = useState();
+  const [placeOfMarriage, setPlaceOfMarriage] = useState();
+  const [schedule, setSchedule] = useState();
+  const formData = {
+    wfirstName,
+    wlastName,
+    waddress,
+    wphone,
+    wage,
+    hfirstName,
+    hlastName,
+    haddress,
+    hphone,
+    hage,
+    dateOfMarriage,
+    placeOfMarriage,
+    schedule,
+    selectedTimeGap,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
   };
 
   return (
@@ -53,44 +89,92 @@ function WedForm() {
           <div className="form-sections">
             <div className="form-group">
               <label htmlFor="fname">First Name</label>
-              <input type="text" id="fname" />
+              <input
+                type="text"
+                id="fname"
+                onChange={(e) => {
+                  setHfirstName(e.target.value);
+                }}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="mname">Last Name</label>
-              <input type="text" id="mname" />
+              <input
+                type="text"
+                id="mname"
+                onChange={(e) => {
+                  setHlastName(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="form-sections">
             <div className="form-group">
               <label htmlFor="address">Address</label>
-              <input type="text" id="adress" />
+              <input
+                type="text"
+                id="adress"
+                onChange={(e) => {
+                  setHaddress(e.target.value);
+                }}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="age">Age</label>
-              <input type="text" id="age" />
+              <input
+                type="text"
+                id="age"
+                onChange={(e) => {
+                  setHage(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="fomr-sections">
             <div className="form-group">
               <label htmlFor="phone">Phone</label>
-              <input type="text" id="phone" />
+              <input
+                type="text"
+                id="phone"
+                onChange={(e) => {
+                  setHphone(e.target.value);
+                }}
+              />
             </div>
           </div>
           <p className="section-label">Wife's Information</p>
           <div className="form-sections">
             <div className="form-group">
               <label htmlFor="fname">First Name</label>
-              <input type="text" id="fname" />
+              <input
+                type="text"
+                id="fname"
+                onChange={(e) => {
+                  setWfirstName(e.target.value);
+                }}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="mname">Last Name</label>
-              <input type="text" id="mname" />
+              <input
+                type="text"
+                id="mname"
+                onChange={(e) => {
+                  setWlastName(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="form-sections">
             <div className="form-group">
               <label htmlFor="address">Address</label>
-              <input type="text" id="adress" />
+              <input
+                type="text"
+                id="adress"
+                onChange={(e) => {
+                  setWaddress(e.target.value);
+                }}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="age">Age</label>
@@ -100,18 +184,37 @@ function WedForm() {
           <div className="fomr-sections">
             <div className="form-group">
               <label htmlFor="phone">Phone</label>
-              <input type="text" id="phone" />
+              <input
+                type="text"
+                id="phone"
+                onChange={(e) => {
+                  setWphone(e.target.value);
+                }}
+              />
             </div>
           </div>
           <p className="section-label">Additional Information</p>
           <div className="form-sections">
             <div className="form-group">
               <label htmlFor="pmarriage">Place of Marriage</label>
-              <input type="text" id="pmarriage" />
+              <input
+                type="text"
+                id="pmarriage"
+                onChange={(e) => {
+                  setPlaceOfMarriage(e.target.value);
+                }}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="dmarriage">Date of Marriage</label>
-              <input type="date" id="b-date" className="bdate-input" />
+              <input
+                type="date"
+                id="b-date"
+                className="bdate-input"
+                onChange={(e) => {
+                  setDateOfMarriage(e.target.value);
+                }}
+              />
             </div>
           </div>
           <p className="section-label">Schedule Date</p>
@@ -121,7 +224,7 @@ function WedForm() {
               id="scheduleDate"
               selected={selectedDate}
               onChange={(date) => {
-                setSelectedDate(date);
+                setSchedule(date);
                 setShowTimeGap(true);
               }}
               minDate={calculateStartingDate()} // Set the minimum selectable date to today
@@ -144,7 +247,7 @@ function WedForm() {
             <button type="reset" className="reset-btn" onClick={handleReset}>
               Reset
             </button>
-            <button type="submit" className="submit-btn">
+            <button type="submit" onClick={handleSubmit} className="submit-btn">
               Submit
             </button>
           </div>

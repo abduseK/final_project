@@ -1,0 +1,23 @@
+.notifier-image {
+  width: 15%;
+  margin-left: 250px;
+}
+
+.notifier {
+  padding-left: 50vh;
+  padding-top: 25vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifier-message {
+  color: grey;
+  margin-left: 160px;
+}
+
+.notifier-btn button {
+  background-color: #00a967;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 230px;
+}
