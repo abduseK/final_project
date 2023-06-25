@@ -97,6 +97,7 @@ function IDForm() {
     age,
     address,
     nationality,
+    maritialStatus,
     gender,
     dateOfBirth,
     schedule,

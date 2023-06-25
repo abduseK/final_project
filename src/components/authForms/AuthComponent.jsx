@@ -5,7 +5,7 @@ import AnimatedPage from "../AnimatedPage.jsx";
 import { useNavigate } from "react-router-dom";
 import SyncLoader from "react-spinners/SyncLoader";
 
-export default function AuthPage() {
+function AuthPage() {
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -28,12 +28,18 @@ export default function AuthPage() {
         headers: {
           "Content-Type": "application/json",
         },
+      }).then(async (response) => {
+        if (response.status == 200 || response.status == 201) {
+          response = await response.json();
+          localStorage.setItem("bearerToken", response.token);
+          localStorage.setItem("user", JSON.stringify(response));
+          localStorage.setItem("isAuthenticated", true);
+          toggle(true);
+        } else {
+          console.log("something went wrong");
+        }
       });
-      result = await result.json();
-      localStorage.setItem("bearerToken", result.token);
-      localStorage.setItem("user", JSON.stringify(result));
-      localStorage.setItem("isAuthenticated", true);
-      toggle(true);
+
       // navigate("/admin/admin/settings");
     }, 2000);
   };
@@ -72,10 +78,15 @@ export default function AuthPage() {
       });
       const data = await result.json();
       localStorage.setItem("beareToken", data.token);
-      localStorage.setItem("user", JSON.stringify(data));
+      const user = JSON.parse(localStorage.getItem("user"));
+      const userPhone = user.phone;
       setAuthenticated(true);
       if (result.ok) {
-        navigate("/");
+        if (userPhone === "0912121212" || userPhone === "0913131313") {
+          navigate("/admin/admin/staff");
+        } else {
+          navigate("/");
+        }
       } else {
         console.log(result);
       }
@@ -169,3 +180,5 @@ export default function AuthPage() {
     </AnimatedPage>
   );
 }
+
+export default AuthPage;

@@ -16,13 +16,17 @@ import Update from "./admin-screens/update/update";
 import Complaints from "./admin-screens/Complaint/Complaint";
 import AddStaffs from "./admin-screens/AddStaff/AddStaff";
 import ViewStaffs from "./admin-screens/ViewStaff/ViewStaff";
-// import ViewPendingTablesBc from "./admin-screens/ViewPendingTableBC/ViewPendingTableBC";
-
-// import ViewPendingTables from "./admin-screens/ViewPendingTable/ViewPendingTable";
 
 export default function Admin() {
   const [loading, setLoading] = useState(false);
   const [adminSelected, setAdminSelected] = useState(false);
+
+  // Admin Phone == "0912121212"
+  // VEP/REP Phone == "0913131313"
+
+  const data = JSON.parse(localStorage.getItem("user"));
+  const userPhone = data.phone;
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -42,48 +46,52 @@ export default function Admin() {
             <div className="sidenav">
               <ul className="sidenav-menu">
                 <h3 className="logo"></h3>
-                <li>
-                  <Link to="admin/dashboard">
-                    <FaHome className="icon" />
-                    Admin Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link to="admin/vpending">
-                    <FaClock className="icon" />
-                    VEP PR
-                  </Link>
-                </li>
-                <li>
-                  <Link to="admin/rpending">
-                    <FaClock className="icon" />
-                    REP PR
-                  </Link>
-                </li>
-                <li>
-                  <Link to="admin/settings">
-                    <FaCog className="icon" />
-                    Settings
-                  </Link>
-                </li>
-                <li>
-                  <Link to="admin/staff">
-                    <FaCog className="icon" />
-                    Staff Mgt.
-                  </Link>
-                </li>
-                <li>
-                  <Link to="admin/updaterequest">
-                    <FaCog className="icon" />
-                    Update Requests
-                  </Link>
-                </li>
-                <li>
-                  <Link to="admin/complains">
-                    <FaCog className="icon" />
-                    Complaints
-                  </Link>
-                </li>
+                {userPhone === "0912121212" && (
+                  <div>
+                    <li>
+                      <Link to="admin/dashboard">
+                        <FaHome className="icon" />
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="admin/staff">
+                        <FaCog className="icon" />
+                        Staff Mgt.
+                      </Link>
+                    </li>
+                  </div>
+                )}
+                {userPhone === "0913131313" && (
+                  <div>
+                    <li>
+                      <Link to="admin/vpending">
+                        <FaClock className="icon" />
+                        VEP PR
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="admin/rpending">
+                        <FaClock className="icon" />
+                        REP PR
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to="admin/updaterequest">
+                        <FaCog className="icon" />
+                        Update Requests
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="admin/complains">
+                        <FaCog className="icon" />
+                        Complaints
+                      </Link>
+                    </li>
+                  </div>
+                )}
+
                 <div className="profile">
                   <img src={admin} alt="" />
                   <p>Abdelselam</p>

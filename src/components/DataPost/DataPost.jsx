@@ -1,6 +1,5 @@
 import "./DataPost.css";
 import announce from "./promotion2.png";
-import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function DataPost() {
@@ -8,14 +7,11 @@ export default function DataPost() {
 
   useEffect(() => {
     // fetching the data
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => {
-        const data = response.data[0];
-        setMessage(data.body);
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
+    fetch("http://localhost:3005/api/post/latest")
+      .then((response) => response.json())
+      .then((data) => {
+        // const post = data[0].body;
+        setMessage(data);
       });
   }, []);
   return (

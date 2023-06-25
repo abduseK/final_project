@@ -1,21 +1,21 @@
 import AnimatedPage from "../AnimatedPage";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
-export default function StatPieChart() {
+export default function StatPieChart(props) {
   const data = [
-    { name: "ID Card", value: 150 },
-    { name: "Birth Certificate", value: 85 },
-    { name: "Death Certificate", value: 30 },
-    { name: "Wedding Certificate", value: 12 },
-    { name: "Newly Registerd Residents", value: 53 },
+    { name: "ID Card", value: 0 },
+    { name: "Birth Certificate", value: props.birth },
+    { name: "Death Certificate", value: props.death },
+    { name: "Wedding Certificate", value: props.wedding },
+    { name: "Newly Registerd Residents", value: 0 },
   ];
   const data02 = [
-    { name: "Total Residents", value: 4000 },
-    { name: "Married", value: 300 },
-    { name: "Children", value: 1000 },
-    { name: "Widow", value: 30 },
-    { name: "Divorce", value: 5 },
-    { name: "New residents/month", value: 480 },
+    { name: "Total Residents", value: 100 },
+    { name: "Married", value: 100 },
+    { name: "Children", value: 100 },
+    { name: "Widow", value: 100 },
+    { name: "Divorce", value: 100 },
+    { name: "New residents/month", value: 100 },
   ];
   return (
     <AnimatedPage>

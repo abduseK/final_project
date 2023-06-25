@@ -94,7 +94,7 @@ import { useState, useEffect, useRef } from "react";
 import dot from "./full-stop.png";
 import logo from "./wms-logo.png";
 
-export default function Header() {
+function Header() {
   const [showDialog, setShowDialog] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -148,6 +148,19 @@ export default function Header() {
     Navigate("/users/auth");
   };
   const [open, setOpen] = useState(false);
+  const [userPhone, setUserPhone] = useState("");
+
+  // if (auth) {
+  //   const data = JSON.parse(localStorage.getItem("user"));
+  //   setUserPhone(data.phone);
+  // }
+
+  useEffect(() => {
+    if (auth) {
+      const data = JSON.parse(localStorage.getItem("user"));
+      setUserPhone(data.phone);
+    }
+  }, [auth, setUserPhone]);
 
   let menuRef = useRef(null);
   useEffect(() => {
@@ -167,31 +180,43 @@ export default function Header() {
       <div className="menus" ref={menuRef}>
         <ul className="menu-lists">
           <li>
-            <Link className="links" to="/">
-              Home
-            </Link>
+            {userPhone === "0912121212" || userPhone === "0913131313" ? (
+              ""
+            ) : (
+              <Link className="links" to="/">
+                Home
+              </Link>
+            )}
           </li>
           <li>
-            <a href="#services">Services</a>
+            {userPhone === "0912121212" || userPhone === "0913131313" ? (
+              ""
+            ) : (
+              <a href="#services">Services</a>
+            )}
           </li>
 
           <div className="dropdown">
-            <div className="menu-trigger" onClick={toggleDropdown}>
-              Notification
-            </div>
+            {auth ? (
+              <div className="menu-trigger" onClick={toggleDropdown}>
+                Notification
+              </div>
+            ) : (
+              ""
+            )}
             {isDropdownOpen && (
               <div className="dropdown-menu">
                 <a href="#">
                   <div className="ml-3 text-sm font-normal">
                     <span className="mb-1 text-sm font-semibold text-gray-900 dark:text-white">
-                      Witness Required
+                      Witness Notification
                     </span>
                     <p>
-                      <span className="font-bold">Sara Salah</span> wants you
+                      {/* <span className="font-bold">Sara Salah</span> wants you
                       <span className="text-blue-500 hover:underline">
                         to be her
                       </span>{" "}
-                      Witness. 2m
+                      Witness. 2m */}
                     </p>
                     <div
                       className="button-group"
@@ -376,9 +401,14 @@ export default function Header() {
             )}
           </li>
           <li>
-            <Link className="links" to="/admin">
-              Account
-            </Link>
+            {auth &&
+            (userPhone === "0912121212" || userPhone === "0913131313") ? (
+              <Link className="links" to="/admin">
+                Account
+              </Link>
+            ) : (
+              ""
+            )}
           </li>
         </ul>
       </div>
@@ -396,3 +426,5 @@ export default function Header() {
     );
   }
 }
+
+export default Header;
