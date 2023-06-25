@@ -1,8 +1,7 @@
 import AnimatedPage from "../../../../components/AnimatedPage";
 import ViewTable from "../../../../components/DataTable/ViewStaffTable/ViewStaffTable";
 
-
-export default function ViewStaff() {
+export default function ViewStaff(props) {
   return (
     <AnimatedPage>
       <div className="admin-screen">

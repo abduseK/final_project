@@ -116,7 +116,7 @@ export default function RPendingTable() {
   };
 
   function handleFilter(event) {
-    const newData = data.filter((row) => {
+    const newData = records.filter((row) => {
       return row.type.toLowerCase().includes(event.target.value.toLowerCase());
     });
 

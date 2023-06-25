@@ -133,6 +133,10 @@ function IDForm() {
     // Perform form submission logic here
   };
 
+  const handlePayment = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       {submitted ? (
@@ -308,6 +312,9 @@ function IDForm() {
                     onClick={handleReset}
                   >
                     Reset
+                  </button>
+                  <button className="submit-btn" onClick={handlePayment}>
+                    Pay
                   </button>
                   <button
                     onClick={handleSubmit}

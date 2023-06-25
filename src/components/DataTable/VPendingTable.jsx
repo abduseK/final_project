@@ -117,21 +117,12 @@ export default function VPendingTable() {
         const entries = data;
         const filteredEntries = entries.map((entry) => {
           const { firstName, lastName } = entry.body;
-          const { hfirstName, hlastName } = entry.body;
           const name = `${firstName} ${lastName}`;
           const age = calculateAge(entry.body.dateOfBirth);
           const sex = entry.body.sex;
           const type = entry.type;
-          const hname = `${hfirstName} ${hlastName}`;
-          const date = entry.body.dateOfMarriage;
 
-          if (type == "birth" || "death") {
-            setWedding(false);
-            return { name, sex, type, age, entryId: entry.id };
-          } else if (type == "wedding") {
-            setWedding(true);
-            return { hname, date };
-          }
+          return { name, sex, type, age };
         });
 
         setRecords(filteredEntries);
@@ -143,7 +134,7 @@ export default function VPendingTable() {
   };
 
   function handleFilter(event) {
-    const newData = data.filter((row) => {
+    const newData = records.filter((row) => {
       return row.type.toLowerCase().includes(event.target.value.toLowerCase());
     });
 
