@@ -6,6 +6,7 @@ import Select from "react-select";
 import StaffUsers from "./Staffs";
 import { Link, Route, Routes } from "react-router-dom";
 import Settings from "../../settings/admin_settings.jsx";
+import Staff from "../../Staff/Staff";
 
 function Tabs() {
   const [message, setMessage] = useState("");
@@ -42,7 +43,7 @@ function Tabs() {
         <div>
           <h2>Registered staff members</h2>
           <StaffUsers />
-          <Link to="/admin/admin/settings">
+          <Link to="/admin/admin/staff">
             <button className="create-staff-acct">Manage staff</button>
           </Link>
         </div>
@@ -63,7 +64,7 @@ function Tabs() {
         </div>
       </div>
       <Routes>
-        <Route exact={true} path="/admin/admin/settings" Component={Settings} />
+        <Route exact={true} path="/admin/admin/staff" Component={Staff} />
       </Routes>
     </div>
   );

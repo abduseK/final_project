@@ -173,6 +173,28 @@ function Header() {
     document.addEventListener("mousedown", handler);
   });
 
+  // const handleWitnessConfirm = async (e) => {
+  //   let result = await fetch("", {
+  //     methodl: "post",
+  //     body: {},
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     }
+  //   }).then((response) => {
+
+  //   }).then((data) => {
+
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/api/resident/witness")
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data)
+  //   })
+  // }, [])
+
   return (
     <div className="nav">
       <img src={logo} alt="kktasks" className="logo" />

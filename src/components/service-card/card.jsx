@@ -203,14 +203,6 @@ export default function ServieCard() {
     setShowDialog(false);
   };
 
-  const handleComplainSubmission = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 2000);
-  };
-
   if (showDialog) {
     document.body.classList.add("active-modal");
   } else {
@@ -245,6 +237,20 @@ export default function ServieCard() {
     document.body.classList.remove("active-modal");
   }
 
+  const [complain, setComplain] = useState("");
+
+  const handleComplainSubmission = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    // setTimeout(async () => {
+    //   setLoading(false);
+    //   setSubmitted(true);
+    //   let result = await fetch("http://localhost:4000/request", {
+    //     method: "post",
+    //     body: {compl},
+    //   });
+    // }, 2000);
+  };
   return (
     <AnimatedPage>
       <div>
@@ -289,8 +295,8 @@ export default function ServieCard() {
               </div>
             </div>
           </Link>
-          <Link to="/application/renovation">
-            {/* <Link > */}
+          {/* <Link to="/application/renovation">
+            
             <div className="card" onClick={openNotexpier}>
               <div className="card--items">
                 <img
@@ -319,7 +325,7 @@ export default function ServieCard() {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
           <Link to="/application/lost">
             <div className="card">
               <div className="card--items">
@@ -328,16 +334,14 @@ export default function ServieCard() {
               </div>
             </div>
           </Link>
-          <Link to="/application/updatechange">
-            {/* <Link> */}
-            {/* <div className="card" onClick={openUpdate}> */}
+          {/* <Link to="/application/updatechange">
             <div className="card">
               <div className="card--items">
                 <img className="card--imgs" src={upd} alt="" />
                 <h5 className="card--title">Update and Change Request</h5>
               </div>
             </div>
-          </Link>
+          </Link> */}
           <Link>
             <div className="card" onClick={openDialog}>
               <div className="card--items">
@@ -383,6 +387,9 @@ export default function ServieCard() {
                     </p>
                     <input
                       type="text"
+                      onChange={(e) => {
+                        setComplain(e.target.value);
+                      }}
                       placeholder="Type here..."
                       className="complain-text-area"
                     />

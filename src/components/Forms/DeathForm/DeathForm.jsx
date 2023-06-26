@@ -108,6 +108,23 @@ function DeathForm() {
     }, 2000);
   };
 
+  const data = JSON.parse(localStorage.getItem("user"));
+  const userPhone = data.phone;
+
+  const handlePayment = (e) => {
+    e.preventDefault();
+    setTimeout(async () => {
+      let result = await fetch("http://localhost:3008/api/pay/", {
+        method: "post",
+        body: { userPhone },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          window.location.replace(data, "_blank");
+        });
+    }, 2000);
+  };
+
   return (
     <div>
       {submitted ? (
@@ -262,6 +279,9 @@ function DeathForm() {
                     onClick={handleReset}
                   >
                     Reset
+                  </button>
+                  <button onClick={handlePayment} className="submit-btn">
+                    Pay
                   </button>
                   <button
                     type="submit"
